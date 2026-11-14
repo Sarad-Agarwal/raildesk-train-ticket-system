@@ -1,0 +1,9 @@
+[
+  {
+    "id": "ADM-1001",
+    "username": "adminuser",
+    "password": "Admin@123",
+    "mobile": "9810012345",
+    "email": "admin@raildesk.example"
+  }
+]

@@ -1,0 +1,171 @@
+/* ==========================================================================
+   Responsive layout
+   Load this file after common.css. It only adjusts layout at smaller widths.
+   Component colours and type stay in common.css so the system remains one set.
+   ========================================================================== */
+
+/* Laptop and tablet: the sidebar leaves the document flow and becomes a drawer. */
+@media (max-width: 1100px) {
+  .app:not(.app--embedded) .sidebar {
+    position: fixed;
+    z-index: 40;
+    inset: 0 auto 0 0;
+    width: min(280px, 88vw);
+    transform: translateX(-105%);
+  }
+
+  .app.sidebar-open .sidebar {
+    transform: translateX(0);
+  }
+
+  .sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    background: rgba(11, 31, 58, 0.46);
+  }
+
+  .app.sidebar-open .sidebar-backdrop {
+    display: block;
+  }
+
+  .stat-grid,
+  .grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .app__content {
+    padding: 24px 18px;
+  }
+}
+
+/* Tablet and large phones: forms, search, and the public menu stack. */
+@media (max-width: 768px) {
+  .public-header {
+    padding: 0 16px;
+  }
+
+  .icon-btn.public-header__toggle {
+    display: inline-flex;
+  }
+
+  .public-nav {
+    position: absolute;
+    top: var(--header-height);
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px;
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .public-header.is-open .public-nav {
+    display: flex;
+  }
+
+  .public-nav .btn,
+  .public-nav__link {
+    width: 100%;
+  }
+
+  .hero {
+    padding: 48px 20px 56px;
+  }
+
+  .page-header,
+  .topbar {
+    align-items: flex-start;
+  }
+
+  .topbar {
+    flex-wrap: wrap;
+    padding: 12px 16px;
+  }
+
+  .topbar__actions {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .grid-2,
+  .grid-3,
+  .stat-grid,
+  .meta-list {
+    grid-template-columns: 1fr;
+  }
+
+  .journey-search,
+  .journey-search__route,
+  .train-card__route {
+    grid-template-columns: 1fr;
+  }
+
+  .journey-search__swap {
+    justify-self: start;
+  }
+
+  .train-card__route > div:last-child,
+  .train-card__duration {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .train-card__top,
+  .train-card__actions,
+  .card__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .fare-list li {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stepper {
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  .stepper__item {
+    flex: 0 0 auto;
+  }
+
+  .stepper__item:not(:last-child)::after {
+    width: 28px;
+    flex: 0 0 28px;
+  }
+
+  .filter-bar .field {
+    flex-basis: 100%;
+  }
+
+  .modal {
+    padding: 12px;
+    align-items: end;
+  }
+
+  .toast-region {
+    right: 12px;
+    left: 12px;
+    width: auto;
+  }
+}
+
+/* Small phones: keep the seat map scrollable rather than squashing berths. */
+@media (max-width: 480px) {
+  .stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .coach {
+    overflow-x: auto;
+  }
+
+  .bar-chart__row {
+    grid-template-columns: 72px minmax(0, 1fr) 36px;
+    gap: 8px;
+  }
+}

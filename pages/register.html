@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create an account · RailDesk</title>
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/auth.css">
+  <link rel="stylesheet" href="../css/premium.css">
+</head>
+<body>
+  <a class="skip-link" href="#registerForm">Skip to registration</a>
+
+  <!-- ============================================================
+       Registration
+       US_UI_001. Aadhaar must be present. It is not checked for length.
+       ============================================================ -->
+  <main class="auth-layout">
+    <section class="auth-panel">
+      <div class="rail-scene" aria-hidden="true">
+        <div class="rail-scene__sky"></div>
+        <svg class="rail-scene__train" viewBox="0 0 640 160" fill="none">
+          <rect x="78" y="58" width="150" height="52" rx="10" fill="#F4F7FB"></rect>
+          <rect x="228" y="64" width="132" height="46" rx="8" fill="#E7EEF6"></rect>
+          <rect x="360" y="64" width="132" height="46" rx="8" fill="#E7EEF6"></rect>
+          <path d="M40 78c18-28 48-40 86-40h42c8 0 14 8 14 18v54H40V78Z" fill="#F0D9A0"></path>
+          <rect x="58" y="62" width="36" height="22" rx="4" fill="#12325C"></rect>
+          <rect x="96" y="70" width="110" height="22" rx="3" fill="#12325C" opacity="0.85"></rect>
+          <rect x="246" y="76" width="96" height="16" rx="3" fill="#12325C" opacity="0.55"></rect>
+          <rect x="378" y="76" width="96" height="16" rx="3" fill="#12325C" opacity="0.55"></rect>
+          <circle cx="110" cy="114" r="14" fill="#071525"></circle>
+          <circle cx="110" cy="114" r="6" fill="#C4A15A"></circle>
+          <circle cx="168" cy="114" r="14" fill="#071525"></circle>
+          <circle cx="168" cy="114" r="6" fill="#C4A15A"></circle>
+          <circle cx="292" cy="114" r="12" fill="#071525"></circle>
+          <circle cx="430" cy="114" r="12" fill="#071525"></circle>
+          <circle cx="24" cy="86" r="6" fill="#F0D9A0"></circle>
+        </svg>
+        <div class="rail-scene__track"></div>
+      </div>
+      <div>
+        <a class="brand brand--light" href="../index.html">
+          <img class="brand__mark" src="../assets/mark.svg" alt="">
+          <span>
+            <span class="brand__name">RailDesk</span>
+            <span class="brand__tag">Train reservations</span>
+          </span>
+        </a>
+        <p class="eyebrow">Register</p>
+        <h1>Create a customer account.</h1>
+        <p class="lede">The username, password, email, mobile number, and Aadhaar number are required before the account can be saved.</p>
+      </div>
+      <p class="auth-panel__foot">This account stays in this browser. It is not sent to a server.</p>
+    </section>
+
+    <section class="auth-form">
+      <div class="auth-card">
+        <h2>Registration</h2>
+        <div class="alert alert--error" id="formAlert" role="alert" hidden style="margin: 16px 0;"></div>
+        <form id="registerForm" novalidate>
+          <div class="stack">
+            <div class="field">
+              <label class="field__label" for="username">Username</label>
+              <input class="field__input" id="username" name="username" type="text" autocomplete="username">
+              <p class="field__hint">At least 6 letters. No numbers or special characters.</p>
+              <p class="field__error" hidden></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="password">Password</label>
+              <div class="field__control">
+                <input class="field__input" id="password" name="password" type="password" autocomplete="new-password">
+                <button class="field__reveal" type="button" data-password-toggle="password" aria-pressed="false">Show</button>
+              </div>
+              <p class="field__hint">At least 8 characters, with one uppercase letter, one number, and one special character.</p>
+              <p class="field__error" hidden></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="confirmPassword">Confirm password</label>
+              <div class="field__control">
+                <input class="field__input" id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password">
+                <button class="field__reveal" type="button" data-password-toggle="confirmPassword" aria-pressed="false">Show</button>
+              </div>
+              <p class="field__error" hidden></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="email">Email</label>
+              <input class="field__input" id="email" name="email" type="text" autocomplete="email">
+              <p class="field__error" hidden></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="mobile">Mobile number</label>
+              <input class="field__input" id="mobile" name="mobile" type="text" inputmode="numeric" autocomplete="tel">
+              <p class="field__error" hidden></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="aadhaar">Aadhaar number</label>
+              <input class="field__input" id="aadhaar" name="aadhaar" type="text" autocomplete="off">
+              <p class="field__error" hidden></p>
+            </div>
+            <button class="btn btn--primary" type="submit">Create account</button>
+          </div>
+        </form>
+        <p class="auth-switch">Already registered? <a href="../index.html">Sign in</a></p>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="../js/register.js"></script>
+</body>
+</html>

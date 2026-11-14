@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Profile · RailDesk</title>
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/profile.css">
+  <link rel="stylesheet" href="../css/premium.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <!-- ============================================================
+       Admin profile
+       Username, password, mobile number, and email for the signed-in
+       administrator. Log out is in the sidebar.
+       ============================================================ -->
+  <div class="app app--admin">
+    <div class="sidebar-backdrop" data-sidebar-close></div>
+    <aside class="sidebar" data-admin-nav aria-label="Admin"></aside>
+    <div class="app__main">
+      <header class="topbar">
+        <button class="icon-btn" type="button" data-sidebar-toggle aria-expanded="false" aria-label="Toggle navigation">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+        <div class="topbar__title">
+          <p class="eyebrow">Admin</p>
+          <h1>Admin Profile</h1>
+        </div>
+      </header>
+
+      <main class="app__content profile-page" id="content">
+        <div class="alert alert--error" id="pageAlert" role="alert" hidden></div>
+        <header class="page-header">
+          <div>
+            <p class="eyebrow">Account</p>
+            <h2>Update admin details</h2>
+          </div>
+        </header>
+
+        <section class="card" aria-labelledby="profileTitle">
+          <div class="card__header">
+            <h2 class="card__title" id="profileTitle">Administrator</h2>
+          </div>
+          <form class="card__body stack" id="profileForm" novalidate>
+            <div class="field">
+              <label class="field__label" for="username">Username</label>
+              <input class="field__input" id="username" name="username" type="text" autocomplete="username">
+              <p class="field__hint">At least 6 letters. No numbers or special characters.</p>
+              <p class="field__error" hidden></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="password">Password</label>
+              <div class="field__control">
+                <input class="field__input" id="password" name="password" type="password" autocomplete="new-password">
+                <button class="field__reveal" type="button" data-password-toggle="password" aria-pressed="false">Show</button>
+              </div>
+              <p class="field__hint">At least 8 characters, with one uppercase letter, one number, and one special character.</p>
+              <p class="field__error" hidden></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="confirmPassword">Confirm password</label>
+              <div class="field__control">
+                <input class="field__input" id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password">
+                <button class="field__reveal" type="button" data-password-toggle="confirmPassword" aria-pressed="false">Show</button>
+              </div>
+              <p class="field__error" hidden></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="mobile">Mobile number</label>
+              <input class="field__input" id="mobile" name="mobile" type="text" inputmode="numeric" autocomplete="tel">
+              <p class="field__error" hidden></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="email">Email ID</label>
+              <input class="field__input" id="email" name="email" type="text" autocomplete="email">
+              <p class="field__error" hidden></p>
+            </div>
+            <div class="cluster">
+              <button class="btn btn--primary" type="submit">Save changes</button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script type="module" src="../js/admin-profile.js"></script>
+</body>
+</html>

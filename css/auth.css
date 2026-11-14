@@ -1,0 +1,197 @@
+/* ==========================================================================
+   Login and registration layout
+   Uses the shared colours and form controls. This file only places them.
+   ========================================================================== */
+
+.auth-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.86fr) minmax(320px, 1.14fr);
+  min-height: 100vh;
+}
+
+.auth-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 48px;
+  overflow: hidden;
+  background:
+    radial-gradient(640px 320px at 18% 12%, rgba(240, 217, 160, 0.22), transparent 58%),
+    linear-gradient(165deg, #1a4a86 0%, #0c2748 42%, #071525 100%);
+  color: #fff;
+}
+
+/* Illustrated night railway. It is drawn in the page, so sign-in still
+   looks cinematic if a video cannot be loaded. Pointer events stay off
+   so the brand link above it remains usable. */
+.rail-scene {
+  position: absolute;
+  right: 0;
+  bottom: 72px;
+  left: 0;
+  height: 150px;
+  pointer-events: none;
+}
+
+.rail-scene__sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent, rgba(4, 13, 24, 0.2) 30%, rgba(4, 13, 24, 0.72));
+}
+
+.rail-scene__train {
+  position: absolute;
+  bottom: 10px;
+  left: 8%;
+  width: min(420px, 86%);
+  height: auto;
+  animation: train-run 22s ease-in-out infinite alternate;
+  filter: drop-shadow(0 12px 16px rgba(0, 0, 0, 0.35));
+}
+
+.rail-scene__track {
+  position: absolute;
+  right: 8%;
+  bottom: 8px;
+  left: 8%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(240, 217, 160, 0.9), transparent);
+}
+
+.auth-panel > :not(.rail-scene) {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes train-run {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(18%);
+  }
+}
+
+.auth-panel h1 {
+  max-width: 12ch;
+  margin-top: 28px;
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 4vw, 3.8rem);
+  font-weight: 560;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+}
+
+.auth-panel .lede {
+  margin-top: 16px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.auth-panel .eyebrow {
+  color: var(--brass-on-dark);
+}
+
+.auth-panel__foot {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.875rem;
+}
+
+.auth-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  background:
+    radial-gradient(520px 240px at 80% 0%, rgba(196, 161, 90, 0.14), transparent 62%),
+    var(--canvas);
+}
+
+.auth-card {
+  width: min(440px, 100%);
+  padding: 28px 28px 24px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  box-shadow: 0 24px 60px rgba(7, 21, 37, 0.12);
+}
+
+.auth-card h2 {
+  font-size: 1.6rem;
+}
+
+.role-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin: 22px 0;
+  padding: 4px;
+  background: #e7edf4;
+  border-radius: 10px;
+}
+
+.role-switch__btn {
+  min-height: 40px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.role-switch__btn.is-active {
+  background: #fff;
+  color: var(--navy);
+  box-shadow: 0 6px 16px rgba(7, 21, 37, 0.08);
+}
+
+.auth-card .stack {
+  margin-top: 8px;
+}
+
+.auth-card .btn {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.auth-switch {
+  margin-top: 18px;
+  color: var(--muted);
+}
+
+.auth-note {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 800px) {
+  .auth-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-panel {
+    min-height: 280px;
+    padding: 28px 20px 120px;
+  }
+
+  .rail-scene {
+    bottom: 56px;
+    height: 110px;
+  }
+
+  .rail-scene__train {
+    width: 240px;
+    bottom: 8px;
+  }
+
+  .auth-panel h1 {
+    max-width: none;
+    font-size: 2.2rem;
+  }
+
+  .auth-form {
+    padding: 28px 16px 48px;
+  }
+}

@@ -1,0 +1,432 @@
+/* ==========================================================================
+   RailDesk premium layer
+   Visual polish only. Loaded last so it can refine colour, depth, and
+   motion without replacing the component structure in common.css.
+   A display face is imported here. If the font request fails, headings
+   fall back to Plus Jakarta Sans.
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,650&display=swap");
+
+/* --------------------------------------------------------------------------
+   Atmosphere
+   A quiet wash behind every screen. No photograph is required, so the
+   pages stay fast when the network is slow.
+   -------------------------------------------------------------------------- */
+body {
+  background:
+    radial-gradient(1100px 480px at 110% -10%, rgba(196, 161, 90, 0.16), transparent 55%),
+    radial-gradient(900px 420px at -15% -5%, rgba(26, 86, 176, 0.1), transparent 50%),
+    var(--canvas);
+}
+
+h1,
+.brand__name,
+.confirm-hero h2,
+.ticket-card__place,
+.train-card__time,
+.stat-card__value {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
+
+.app {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.45), transparent 220px),
+    var(--canvas);
+}
+
+/* --------------------------------------------------------------------------
+   Portals
+   Customer navigation stays royal and warm. Admin navigation is graphite
+   with a brass edge, so the two portals are distinct at a glance.
+   -------------------------------------------------------------------------- */
+.sidebar {
+  background:
+    radial-gradient(420px 220px at 0 0, rgba(240, 217, 160, 0.16), transparent 60%),
+    linear-gradient(180deg, #163e72 0%, #0d2748 55%, #071525 100%);
+  box-shadow: inset -1px 0 0 rgba(240, 217, 160, 0.16);
+}
+
+.app--admin .sidebar {
+  background:
+    radial-gradient(420px 220px at 0 0, rgba(240, 217, 160, 0.12), transparent 62%),
+    linear-gradient(180deg, #1a242f 0%, #101820 48%, #0a1016 100%);
+  box-shadow: inset -3px 0 0 var(--brass);
+}
+
+.sidebar__link {
+  transition: background-color 0.16s ease, color 0.16s ease, transform 0.16s ease;
+}
+
+.sidebar__link:hover {
+  transform: translateX(2px);
+}
+
+.avatar {
+  background: linear-gradient(160deg, rgba(240, 217, 160, 0.4), rgba(255, 255, 255, 0.12));
+  box-shadow: inset 0 0 0 1px rgba(240, 217, 160, 0.45);
+}
+
+.topbar {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 rgba(7, 21, 37, 0.06);
+}
+
+.app--customer .topbar {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.86)) padding-box,
+    linear-gradient(90deg, #12325c, #c4a15a) border-box;
+  border-bottom: 3px solid transparent;
+}
+
+.app--admin .topbar {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.94), rgba(248, 246, 241, 0.9)) padding-box,
+    linear-gradient(90deg, #1a242f, #c4a15a) border-box;
+  border-bottom: 3px solid transparent;
+}
+
+/* --------------------------------------------------------------------------
+   Controls
+   Hover lifts a primary action. Pressing it settles back down.
+   -------------------------------------------------------------------------- */
+.btn,
+.icon-btn,
+.chip,
+.journey-search__swap {
+  transition: transform 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+}
+
+.btn--primary {
+  background: linear-gradient(180deg, #2b6ec8 0%, #1a4f9c 100%);
+  box-shadow: 0 8px 18px rgba(26, 79, 156, 0.28);
+}
+
+.btn--primary:hover {
+  background: linear-gradient(180deg, #245fae 0%, #0e3d82 100%);
+  transform: translateY(-1px);
+}
+
+.btn:active,
+.icon-btn:active,
+.chip:active {
+  transform: translateY(1px);
+}
+
+.btn--secondary,
+.icon-btn {
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+}
+
+.btn--accent {
+  background: linear-gradient(180deg, #d4b56a, #b8923f);
+  box-shadow: 0 8px 16px rgba(166, 132, 61, 0.28);
+}
+
+.field__input,
+.field__select,
+.field__textarea {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.field__input:focus,
+.field__select:focus,
+.field__textarea:focus {
+  box-shadow: 0 0 0 4px rgba(26, 86, 176, 0.14);
+}
+
+/* --------------------------------------------------------------------------
+   Surfaces
+   Cards, search panels, and statistics share one depth treatment.
+   -------------------------------------------------------------------------- */
+.card,
+.stat-card,
+.train-card,
+.journey-search,
+.auth-card {
+  box-shadow: var(--shadow);
+}
+
+.card,
+.stat-card,
+.train-card {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.train-card:hover,
+.stat-card:hover {
+  box-shadow: 0 18px 42px rgba(7, 21, 37, 0.12);
+}
+
+.stat-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.4), transparent 42%),
+    #fff;
+}
+
+.stat-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18px;
+  right: 18px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--royal), var(--brass));
+}
+
+.stat-card--accent {
+  box-shadow: var(--shadow), inset 0 3px 0 var(--brass);
+}
+
+.bar-chart__track {
+  height: 10px;
+  background: #e6edf5;
+}
+
+.bar-chart__fill {
+  background: linear-gradient(90deg, #12325c, #3d7ad4);
+}
+
+.column-chart__bar {
+  width: 36px;
+  background: linear-gradient(180deg, #6ea0e4, #12325c);
+  box-shadow: 0 8px 16px rgba(18, 50, 92, 0.18);
+}
+
+.column-chart__item:last-child .column-chart__bar {
+  background: linear-gradient(180deg, #f0d9a0, #a6843d);
+}
+
+.data-table th {
+  background: #f7f5f1;
+}
+
+.data-table tbody tr {
+  transition: background-color 0.16s ease;
+}
+
+.badge {
+  letter-spacing: 0.03em;
+}
+
+.badge--success {
+  box-shadow: inset 0 0 0 1px rgba(31, 122, 77, 0.12);
+}
+
+.badge--danger {
+  box-shadow: inset 0 0 0 1px rgba(159, 45, 45, 0.12);
+}
+
+/* --------------------------------------------------------------------------
+   Search, seats, and steps
+   -------------------------------------------------------------------------- */
+.station-list {
+  box-shadow: 0 16px 36px rgba(7, 21, 37, 0.14);
+  animation: menu-in 0.16s ease;
+}
+
+.class-pills li,
+.chip {
+  background: #fff;
+}
+
+.page-header h2 {
+  font-family: var(--font-display);
+  font-weight: 560;
+}
+
+.fare-list li {
+  margin-top: 8px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  transition: border-color 0.16s ease, background-color 0.16s ease;
+}
+
+.fare-list li:hover {
+  border-color: rgba(196, 161, 90, 0.7);
+  background: #fbf8f2;
+}
+
+.chip--active {
+  background: linear-gradient(180deg, #163e72, #0d2748);
+  box-shadow: 0 6px 14px rgba(7, 21, 37, 0.18);
+}
+
+.coach {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.45), transparent 30%),
+    linear-gradient(180deg, #f8f4ec, #efe6d4);
+  box-shadow: inset 0 0 0 1px rgba(166, 132, 61, 0.25);
+}
+
+.seat {
+  transition: transform 0.14s ease, background-color 0.14s ease, box-shadow 0.14s ease, border-color 0.14s ease;
+}
+
+.seat--available:hover {
+  transform: translateY(-2px);
+  border-color: var(--action);
+  box-shadow: 0 6px 12px rgba(26, 86, 176, 0.16);
+}
+
+.seat--selected {
+  background: linear-gradient(180deg, #245fae, #071525);
+  box-shadow: 0 8px 14px rgba(7, 21, 37, 0.28);
+}
+
+.seat--occupied {
+  background: repeating-linear-gradient(-45deg, #e7ecf2, #e7ecf2 4px, #f4f7fa 4px, #f4f7fa 8px);
+}
+
+.stepper {
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.stepper__item.is-current .stepper__index {
+  background: #fff;
+  color: var(--navy);
+}
+
+.stepper__item.is-complete .stepper__index {
+  background: linear-gradient(180deg, #245fae, #0d2748);
+}
+
+/* --------------------------------------------------------------------------
+   Issued ticket and confirmation
+   The markup already carries the journey, passenger, and fare fields.
+   These rules only change how that information is presented.
+   -------------------------------------------------------------------------- */
+.ticket-card {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(240, 217, 160, 0.18), transparent 72px),
+    #fff;
+  box-shadow: 0 16px 36px rgba(7, 21, 37, 0.1);
+}
+
+.ticket-card__rail {
+  background: linear-gradient(180deg, #c4a15a, #12325c 28%, #071525);
+}
+
+.ticket-card--cancelled {
+  filter: saturate(0.7);
+}
+
+.ticket-card__route {
+  padding-bottom: 14px;
+  border-bottom: 1px dashed rgba(7, 21, 37, 0.18);
+}
+
+.ticket-card__place {
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+}
+
+.ticket-card__arrow {
+  width: 72px;
+  background: linear-gradient(90deg, transparent, #c4a15a, transparent);
+}
+
+#confirmation.card {
+  overflow: hidden;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(135deg, #c4a15a, #12325c 42%, #c4a15a) border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 24px 54px rgba(7, 21, 37, 0.14);
+}
+
+#confirmation .confirm-hero {
+  padding-bottom: 18px;
+  border-bottom: 1px dashed rgba(7, 21, 37, 0.18);
+}
+
+#confirmation #bookingId,
+.confirm-hero h2 {
+  font-family: var(--font-display);
+}
+
+/* --------------------------------------------------------------------------
+   Feedback
+   -------------------------------------------------------------------------- */
+.modal__backdrop {
+  background: rgba(4, 13, 24, 0.62);
+  backdrop-filter: blur(8px);
+}
+
+.modal__dialog {
+  border-top: 4px solid var(--brass);
+  box-shadow: 0 28px 70px rgba(4, 13, 24, 0.28);
+  animation: rise 0.22s ease;
+}
+
+.toast {
+  border: 0;
+  border-left: 4px solid var(--success);
+  box-shadow: 0 16px 36px rgba(7, 21, 37, 0.16);
+  animation: toast-in 0.22s ease;
+}
+
+.empty-state__title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+}
+
+.alert {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .train-card:hover,
+  .stat-card:hover,
+  .btn--primary:hover,
+  .sidebar__link:hover,
+  .seat--available:hover {
+    transform: none;
+  }
+}

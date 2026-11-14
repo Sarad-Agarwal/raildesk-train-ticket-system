@@ -1,0 +1,132 @@
+/* ==========================================================================
+   View Ticket
+   Ticket cards and the three summary figures. Shared colours stay in common.css.
+   ========================================================================== */
+
+.ticket-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ticket-stats {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ticket-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ticket-card {
+  display: grid;
+  grid-template-columns: 6px minmax(0, 1fr);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 1px 2px rgba(11, 31, 58, 0.04);
+  overflow: hidden;
+}
+
+.ticket-card__rail {
+  background: var(--navy);
+}
+
+.ticket-card--cancelled .ticket-card__rail {
+  background: #c5d0dc;
+}
+
+.ticket-card__body {
+  padding: 18px 22px 20px;
+}
+
+.ticket-card__top,
+.ticket-card__actions {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.ticket-card__train {
+  font-size: 1.15rem;
+}
+
+.ticket-card__number {
+  color: var(--brass-text);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ticket-card__route {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  margin: 18px 0 8px;
+}
+
+.ticket-card__place {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.ticket-card__when {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.ticket-card__route > div:last-child {
+  text-align: right;
+}
+
+.ticket-card__arrow {
+  width: 42px;
+  height: 2px;
+  background: #c5d0dc;
+  position: relative;
+}
+
+.ticket-card__arrow::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  right: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 7px solid var(--brass);
+}
+
+.ticket-card .meta-list {
+  margin-top: 8px;
+}
+
+.ticket-card__actions {
+  align-items: center;
+  margin-top: 16px;
+}
+
+@media (max-width: 1100px) {
+  .ticket-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .ticket-stats,
+  .ticket-card__route {
+    grid-template-columns: 1fr;
+  }
+
+  .ticket-card__route > div:last-child,
+  .ticket-card__top,
+  .ticket-card__actions {
+    text-align: left;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

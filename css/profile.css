@@ -1,0 +1,23 @@
+/* ==========================================================================
+   Update Details
+   Two stacked sections. Field, button, and card styles stay in common.css.
+   ========================================================================== */
+
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 760px;
+}
+
+.profile-page .field__input[readonly] {
+  background: var(--canvas);
+}
+
+#passwordPanel[hidden] {
+  display: none;
+}
+
+#passwordForm:has(#passwordPanel[hidden]) {
+  display: none;
+}

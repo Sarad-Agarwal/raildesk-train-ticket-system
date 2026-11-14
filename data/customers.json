@@ -1,0 +1,22 @@
+[
+  {
+    "id": "CUS-1008",
+    "username": "aaravmehta",
+    "password": "Travel@123",
+    "email": "aarav.mehta@example.com",
+    "mobile": "9876543210",
+    "aadhaar": "499218760033",
+    "address": "14 Ashoka Road, New Delhi",
+    "name": "Aarav Mehta"
+  },
+  {
+    "id": "CUS-1009",
+    "username": "meeraiyer",
+    "password": "Travel@123",
+    "email": "meera.iyer@example.com",
+    "mobile": "9123456780",
+    "aadhaar": "610045889211",
+    "address": "8 Cathedral Road, Chennai",
+    "name": "Meera Iyer"
+  }
+]

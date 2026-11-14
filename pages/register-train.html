@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register a Train · RailDesk</title>
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/premium.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <!-- ============================================================
+       Register a Train
+       Saves a train into the timetable used by Train Search.
+       ============================================================ -->
+  <div class="app app--admin">
+    <div class="sidebar-backdrop" data-sidebar-close></div>
+    <aside class="sidebar" data-admin-nav aria-label="Admin"></aside>
+    <div class="app__main">
+      <header class="topbar">
+        <button class="icon-btn" type="button" data-sidebar-toggle aria-expanded="false" aria-label="Toggle navigation">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+        <div class="topbar__title">
+          <p class="eyebrow">Admin</p>
+          <h1>Register a Train</h1>
+        </div>
+      </header>
+
+      <main class="app__content" id="content">
+        <div class="alert alert--error" id="pageAlert" role="alert" hidden></div>
+        <header class="page-header">
+          <div>
+            <p class="eyebrow">Timetable</p>
+            <h2>Register a train</h2>
+          </div>
+        </header>
+
+        <section class="card" aria-labelledby="trainTitle">
+          <div class="card__header">
+            <h2 class="card__title" id="trainTitle">Train details</h2>
+          </div>
+          <form class="card__body book-form" id="trainForm" novalidate>
+            <p class="muted">Every field is required. The train runs every day, leaves at 8:00 AM, and arrives at 6:00 PM. Seat availability uses the seat count below.</p>
+            <div class="alert alert--success" id="saveNotice" role="status" hidden></div>
+            <div class="grid-2">
+              <div class="field">
+                <label class="field__label" for="trainName">Train name</label>
+                <input class="field__input" id="trainName" name="trainName" type="text" autocomplete="off">
+                <p class="field__error" hidden></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="seatCount">Number of seats</label>
+                <input class="field__input" id="seatCount" name="seatCount" type="text" inputmode="numeric" autocomplete="off">
+                <p class="field__error" hidden></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="sourceStation">From (source station)</label>
+                <select class="field__select" id="sourceStation" name="sourceStation">
+                  <option value="">Select a station</option>
+                </select>
+                <p class="field__error" hidden></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="destinationStation">To (destination station)</label>
+                <select class="field__select" id="destinationStation" name="destinationStation">
+                  <option value="">Select a station</option>
+                </select>
+                <p class="field__error" hidden></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="ownership">Train ownership</label>
+                <input class="field__input" id="ownership" name="ownership" type="text" autocomplete="organization">
+                <p class="field__error" hidden></p>
+              </div>
+            </div>
+            <div class="cluster">
+              <button class="btn btn--primary" type="submit">Register train</button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script type="module" src="../js/register-train.js"></script>
+</body>
+</html>

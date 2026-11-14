@@ -1,0 +1,110 @@
+/* ==========================================================================
+   Train search
+   Layout for the station suggestions and the result cards. The train card,
+   search panel, badges, and filters come from common.css.
+   ========================================================================== */
+
+.search-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.station-field {
+  position: relative;
+}
+
+.station-list {
+  position: absolute;
+  z-index: 30;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-height: 240px;
+  margin: 0;
+  padding: 6px;
+  overflow: auto;
+  list-style: none;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.station-list[hidden] {
+  display: none !important;
+}
+
+.station-list__option {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--navy);
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.station-list__option.is-active,
+.station-list__option:hover {
+  background: var(--canvas);
+}
+
+.class-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.class-pills li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--canvas);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.search-results {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.search-loading {
+  display: grid;
+  gap: 10px;
+  padding: 22px;
+}
+
+.search-loading .skeleton {
+  height: 18px;
+}
+
+.search-loading .skeleton:first-child {
+  width: 42%;
+}
+
+.fare-choice {
+  min-height: 0;
+}
+
+.fare-list .badge {
+  justify-self: start;
+}
+
+@media (max-width: 768px) {
+  .fare-list li {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+}

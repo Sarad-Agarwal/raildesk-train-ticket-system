@@ -1,0 +1,45 @@
+/* ==========================================================================
+   Customer home and booking confirmation
+   Page layout only. Cards, charts, fields, and the sidebar come from common.css.
+   ========================================================================== */
+
+.page-header h2 {
+  font-size: 1.75rem;
+}
+
+.field__input[readonly] {
+  background: var(--canvas);
+}
+
+#classChart .bar-chart__row {
+  grid-template-columns: 112px minmax(0, 1fr) 32px;
+}
+
+.book-form {
+  display: grid;
+  gap: 16px;
+}
+
+.confirm-hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.confirm-hero h1 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+}
+
+.column-chart__value {
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .confirm-hero {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

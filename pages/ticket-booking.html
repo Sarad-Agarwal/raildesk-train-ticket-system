@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticket Booking · RailDesk</title>
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/booking.css">
+  <link rel="stylesheet" href="../css/premium.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <!-- ============================================================
+       Ticket booking
+       Opens after Train Search with the chosen train and class.
+       Passengers, seats, and a demonstration payment follow.
+       The customer home Book Ticket form is a separate path.
+       ============================================================ -->
+  <div class="app app--customer">
+    <div class="sidebar-backdrop" data-sidebar-close></div>
+    <aside class="sidebar" data-customer-nav aria-label="Customer"></aside>
+    <div class="app__main">
+      <header class="topbar">
+        <button class="icon-btn" type="button" data-sidebar-toggle aria-expanded="false" aria-label="Toggle navigation">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+        <div class="topbar__title">
+          <p class="eyebrow">Customer</p>
+          <h1>Ticket booking</h1>
+        </div>
+      </header>
+
+      <main class="app__content booking-page" id="content">
+        <article class="card" id="missing" hidden>
+          <div class="empty-state">
+            <h2 class="empty-state__title">No train selected</h2>
+            <p class="empty-state__text">Choose a train and class from the search results, then use Book now.</p>
+            <a class="btn btn--primary" href="train-search.html">Search trains</a>
+          </div>
+        </article>
+
+        <div class="stack" id="booking" hidden>
+          <article class="card" id="selection">
+            <div class="card__header">
+              <div>
+                <h2 id="trainTitle">Selected train</h2>
+                <p class="card__subtitle">This choice is kept from Train Search.</p>
+              </div>
+              <a class="btn btn--secondary" href="train-search.html">Back to search results</a>
+            </div>
+            <div class="card__body">
+              <dl class="meta-list" id="details"></dl>
+            </div>
+          </article>
+
+          <ol class="stepper" id="stepper" aria-label="Booking steps">
+            <li class="stepper__item is-complete" id="stepTrain"><span class="stepper__index">1</span> Train</li>
+            <li class="stepper__item is-current" id="stepPassengers"><span class="stepper__index">2</span> Passengers</li>
+            <li class="stepper__item" id="stepSeats"><span class="stepper__index">3</span> Seats</li>
+            <li class="stepper__item" id="stepPayment"><span class="stepper__index">4</span> Payment</li>
+          </ol>
+
+          <article class="card" id="passengerPanel">
+            <div class="card__header">
+              <div>
+                <h2>Passenger details</h2>
+                <p class="card__subtitle">Each ticket needs a name, age, and gender. One mobile number covers the booking.</p>
+              </div>
+            </div>
+            <div class="card__body">
+              <form class="book-form" id="passengerForm" novalidate>
+                <div class="grid-2">
+                  <div class="field">
+                    <label class="field__label" for="ticketCount">Number of tickets</label>
+                    <input class="field__input" id="ticketCount" name="ticketCount" type="text" inputmode="numeric" value="1" autocomplete="off">
+                    <p class="field__hint" id="ticketHint">Up to the seats left in this class, and no more than 6 tickets.</p>
+                    <p class="field__error" hidden></p>
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="mobile">Mobile number</label>
+                    <input class="field__input" id="mobile" name="mobile" type="text" inputmode="numeric" autocomplete="tel" placeholder="10-digit mobile number">
+                    <p class="field__error" hidden></p>
+                  </div>
+                </div>
+                <div class="stack" id="passengerList"></div>
+                <p class="booking-total" id="farePreview"></p>
+                <div class="cluster">
+                  <button class="btn btn--primary" id="toSeats" type="submit">Continue to seats</button>
+                </div>
+              </form>
+            </div>
+          </article>
+
+          <article class="card" id="seatPanel" hidden>
+            <div class="card__header">
+              <div>
+                <h2>Seat selection</h2>
+                <p class="card__subtitle" id="seatIntro">Choose the seats for this journey.</p>
+              </div>
+            </div>
+            <div class="card__body stack">
+              <ul class="seat-legend">
+                <li><span class="seat seat--available" aria-hidden="true"></span> Available</li>
+                <li><span class="seat seat--selected" aria-hidden="true"></span> Selected</li>
+                <li><span class="seat seat--occupied" aria-hidden="true"></span> Occupied</li>
+              </ul>
+              <p id="seatCount">0 seats selected</p>
+              <div class="coach" id="coach" aria-label="Seat map"></div>
+              <p class="field__error" id="seatError" hidden></p>
+              <div class="cluster">
+                <button class="btn btn--secondary" id="backToPassengers" type="button">Back to passengers</button>
+                <button class="btn btn--primary" id="toPayment" type="button">Continue to payment</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" id="paymentPanel" hidden>
+            <div class="card__header">
+              <div>
+                <h2>Payment</h2>
+                <p class="card__subtitle">This is a demonstration. RailDesk does not send the card to a bank, and the card number is not saved.</p>
+              </div>
+            </div>
+            <div class="card__body">
+              <form class="book-form" id="paymentForm" novalidate>
+                <div class="field">
+                  <label class="field__label" for="cardName">Name on card</label>
+                  <input class="field__input" id="cardName" name="cardName" type="text" autocomplete="cc-name">
+                  <p class="field__error" hidden></p>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="cardNumber">Card number</label>
+                  <input class="field__input" id="cardNumber" name="cardNumber" type="text" inputmode="numeric" autocomplete="cc-number" placeholder="16 digits">
+                  <p class="field__error" hidden></p>
+                </div>
+                <div class="grid-3">
+                  <div class="field">
+                    <label class="field__label" for="expiryMonth">Expiry month</label>
+                    <select class="field__input" id="expiryMonth" name="expiryMonth">
+                      <option value="">Month</option>
+                    </select>
+                    <p class="field__error" hidden></p>
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="expiryYear">Expiry year</label>
+                    <select class="field__input" id="expiryYear" name="expiryYear">
+                      <option value="">Year</option>
+                    </select>
+                    <p class="field__error" hidden></p>
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="cvv">CVV</label>
+                    <input class="field__input" id="cvv" name="cvv" type="password" inputmode="numeric" autocomplete="cc-csc" maxlength="3" placeholder="3 digits">
+                    <p class="field__error" hidden></p>
+                  </div>
+                </div>
+                <p class="booking-total" id="paymentTotal"></p>
+                <div class="cluster">
+                  <button class="btn btn--secondary" id="backToSeats" type="button">Back to seats</button>
+                  <button class="btn btn--primary" id="payButton" type="submit">Pay and confirm</button>
+                </div>
+              </form>
+            </div>
+          </article>
+        </div>
+
+        <article class="card" id="confirmation" hidden>
+          <div class="card__body">
+            <div class="confirm-hero">
+              <div>
+                <p class="eyebrow">Confirmed</p>
+                <h2 id="bookingId">Booking</h2>
+                <p class="card__subtitle">The ticket is saved on this account and appears in View Ticket.</p>
+              </div>
+              <span class="badge badge--success">Confirmed</span>
+            </div>
+            <dl class="meta-list" id="confirmationDetails"></dl>
+            <div class="cluster" style="margin-top: 24px;">
+              <a class="btn btn--primary" href="train-search.html">Back to search results</a>
+              <a class="btn btn--secondary" href="view-tickets.html">View tickets</a>
+              <a class="btn btn--ghost" href="customer-dashboard.html">Home</a>
+            </div>
+          </div>
+        </article>
+      </main>
+    </div>
+  </div>
+  <script type="module" src="../js/ticket-booking.js"></script>
+</body>
+</html>

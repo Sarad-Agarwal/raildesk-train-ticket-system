@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" role="img" aria-label="RailDesk">
+  <rect x="0.75" y="0.75" width="34.5" height="34.5" rx="10" fill="#0B1F3A" stroke="#E4C98A" stroke-width="1.5"/>
+  <path d="M8 25h20" stroke="#E4C98A" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M10 20.5h16" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
+  <circle cx="18" cy="13" r="3.1" fill="#E4C98A"/>
+</svg>

@@ -1,0 +1,38 @@
+/* ==========================================================================
+   Ticket booking
+   Layout for the search-path booking steps. Shared cards, seats, and the
+   stepper come from common.css.
+   ========================================================================== */
+
+.booking-page {
+  display: grid;
+  gap: 20px;
+}
+
+.passenger-block {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+}
+
+.passenger-block h3 {
+  margin: 0 0 12px;
+  font-size: 1rem;
+}
+
+.booking-total {
+  margin: 0;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+#seatCount {
+  margin: 0;
+  font-weight: 600;
+}
+
+#coach {
+  max-height: 420px;
+  overflow: auto;
+}

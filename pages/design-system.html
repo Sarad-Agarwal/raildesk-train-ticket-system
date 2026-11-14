@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design system · RailDesk</title>
+  <meta name="description" content="Shared RailDesk components for the train ticket booking system.">
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/premium.css">
+  <style>
+    /* Layout only for this component library. Product styles stay in common.css. */
+    .specimen {
+      margin-bottom: 28px;
+      scroll-margin-top: 88px;
+    }
+
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+      gap: 12px;
+    }
+
+    .swatch {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .swatch__chip {
+      height: 72px;
+    }
+
+    .swatch p {
+      padding: 10px 12px 12px;
+      font-size: 0.8125rem;
+    }
+
+    .swatch strong,
+    .type-row strong {
+      display: block;
+    }
+
+    .type-row {
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .type-row span {
+      color: var(--muted);
+      font-size: 0.8125rem;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <!-- ============================================================
+       Application shell
+       Customer pages use .app--customer. Admin pages use .app--admin.
+       The preview button switches the class so both portals can be compared.
+       ============================================================ -->
+  <div class="app app--customer" id="app">
+    <div class="sidebar-backdrop" data-sidebar-close></div>
+    <aside class="sidebar" aria-label="Component library">
+      <a class="brand brand--light" href="../index.html">
+        <img class="brand__mark" src="../assets/mark.svg" alt="">
+        <span>
+          <span class="brand__name">RailDesk</span>
+          <span class="brand__tag">Design system</span>
+        </span>
+      </a>
+      <nav class="sidebar__nav" aria-label="Components">
+        <a class="sidebar__link is-active" href="#colour">Colour</a>
+        <a class="sidebar__link" href="#type">Type</a>
+        <a class="sidebar__link" href="#buttons">Buttons</a>
+        <a class="sidebar__link" href="#forms">Forms</a>
+        <a class="sidebar__link" href="#search">Search</a>
+        <a class="sidebar__link" href="#trains">Train cards</a>
+        <a class="sidebar__link" href="#charts">Charts</a>
+        <a class="sidebar__link" href="#tables">Tables</a>
+        <a class="sidebar__link" href="#seats">Seats</a>
+        <a class="sidebar__link" href="#feedback">Feedback</a>
+      </nav>
+      <div class="sidebar__footer">
+        <div class="sidebar__user">
+          <span class="avatar" aria-hidden="true">AM</span>
+          <span>
+            <strong>Aarav Mehta</strong>
+            <small id="shellRole">Customer</small>
+          </span>
+        </div>
+        <button class="btn btn--ghost" id="logoutButton" type="button">Log out</button>
+      </div>
+    </aside>
+
+    <div class="app__main">
+      <header class="topbar">
+        <button class="icon-btn" type="button" data-sidebar-toggle aria-expanded="true" aria-label="Toggle navigation">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+        <div class="topbar__title">
+          <p class="eyebrow">Foundation</p>
+          <h1>Design system</h1>
+        </div>
+        <div class="topbar__actions">
+          <a class="btn btn--ghost" href="../index.html">Login</a>
+          <span class="badge" id="rolePill">Customer</span>
+          <button class="btn btn--secondary" id="themeToggle" type="button">Preview admin shell</button>
+        </div>
+      </header>
+
+      <main class="app__content" id="content">
+        <div class="alert" style="margin-bottom: 24px;">
+          These components are shared by every later page. Sample train numbers on this page are specimens. Seat availability in the product is calculated from bookings for the selected train, date, and class.
+        </div>
+
+        <!-- ============================================================
+             Booking stepper
+             Train, then passengers and seats, then payment, then confirmation.
+             ============================================================ -->
+        <section class="card specimen" aria-labelledby="stepper-title">
+          <div class="card__header">
+            <h2 class="card__title" id="stepper-title">Booking progress</h2>
+          </div>
+          <div class="card__body">
+            <ol class="stepper" aria-label="Booking progress">
+              <li class="stepper__item is-complete"><span class="stepper__index">1</span><span>Train</span></li>
+              <li class="stepper__item is-current"><span class="stepper__index">2</span><span>Passengers and seats</span></li>
+              <li class="stepper__item"><span class="stepper__index">3</span><span>Payment</span></li>
+              <li class="stepper__item"><span class="stepper__index">4</span><span>Confirmation</span></li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             Colour
+             ============================================================ -->
+        <section class="card specimen" id="colour" aria-labelledby="colour-title">
+          <div class="card__header">
+            <h2 class="card__title" id="colour-title">Colour</h2>
+          </div>
+          <div class="card__body">
+            <div class="swatches">
+              <div class="swatch"><div class="swatch__chip" style="background:#0B1F3A"></div><p><strong>Navy</strong> #0B1F3A</p></div>
+              <div class="swatch"><div class="swatch__chip" style="background:#163E72"></div><p><strong>Royal</strong> #163E72</p></div>
+              <div class="swatch"><div class="swatch__chip" style="background:#1D4E89"></div><p><strong>Action</strong> #1D4E89</p></div>
+              <div class="swatch"><div class="swatch__chip" style="background:#A6843D"></div><p><strong>Brass</strong> #A6843D</p></div>
+              <div class="swatch"><div class="swatch__chip" style="background:#F3F5F8"></div><p><strong>Canvas</strong> #F3F5F8</p></div>
+              <div class="swatch"><div class="swatch__chip" style="background:#1F7A4D"></div><p><strong>Success</strong> #1F7A4D</p></div>
+              <div class="swatch"><div class="swatch__chip" style="background:#9F2D2D"></div><p><strong>Danger</strong> #9F2D2D</p></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             Type
+             The formatted line is filled by formatInr, formatDisplayDate,
+             and formatClock so the helpers can be checked on the page.
+             ============================================================ -->
+        <section class="card specimen" id="type" aria-labelledby="type-title">
+          <div class="card__header">
+            <h2 class="card__title" id="type-title">Type</h2>
+          </div>
+          <div class="card__body">
+            <div class="type-row">
+              <strong style="font-size:1.75rem">Page title</strong>
+              <span>Plus Jakarta Sans at 28px.</span>
+            </div>
+            <div class="type-row">
+              <p>Body copy stays at 16px. Secondary text uses the muted colour, as in this sentence.</p>
+            </div>
+            <div class="type-row">
+              <p class="mono" id="formatSample">₹1,845 · 18 Nov 2026 · 6:40 PM</p>
+              <span>Train numbers, booking ids, fares, and times use the monospace face.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             Buttons
+             ============================================================ -->
+        <section class="card specimen" id="buttons" aria-labelledby="buttons-title">
+          <div class="card__header">
+            <h2 class="card__title" id="buttons-title">Buttons</h2>
+          </div>
+          <div class="card__body stack">
+            <div class="cluster">
+              <button class="btn btn--primary" type="button" data-demo-toast="Primary actions continue the current task.">Primary</button>
+              <button class="btn btn--secondary" type="button" data-demo-toast="Secondary actions offer another path.">Secondary</button>
+              <button class="btn btn--ghost" type="button" data-demo-toast="Ghost actions are quiet alternatives.">Ghost</button>
+              <button class="btn btn--danger" type="button" data-open-modal="deleteModal">Danger</button>
+              <button class="btn btn--accent" type="button" data-demo-toast="Brass is reserved for a single highlight.">Accent</button>
+              <button class="btn btn--primary" id="loadButton" type="button">Loading state</button>
+            </div>
+            <p class="muted">The loading button disables itself and shows a spinner, then returns.</p>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             Forms
+             setFieldError and the password toggle are demonstrated here.
+             Registration rules are applied for real on the registration page.
+             ============================================================ -->
+        <section class="card specimen" id="forms" aria-labelledby="forms-title">
+          <div class="card__header">
+            <h2 class="card__title" id="forms-title">Forms</h2>
+          </div>
+          <div class="card__body">
+            <div class="grid-2">
+              <div class="field">
+                <label class="field__label" for="sampleEmail">Email <abbr title="required">*</abbr></label>
+                <input class="field__input" id="sampleEmail" type="email" autocomplete="email" placeholder="name@example.com">
+                <p class="field__error" id="sampleEmailError" hidden></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="samplePassword">Password <abbr title="required">*</abbr></label>
+                <div class="field__control">
+                  <input class="field__input" id="samplePassword" type="password" autocomplete="current-password" placeholder="Enter a password">
+                  <button class="field__reveal" type="button" data-password-toggle="samplePassword" aria-pressed="false">Show</button>
+                </div>
+                <p class="field__hint">At least 8 characters, with one uppercase letter, one number, and one symbol.</p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="sampleClass">Class</label>
+                <select class="field__select" id="sampleClass">
+                  <option>Sleeper (SL)</option>
+                  <option>AC 3 Tier (3A)</option>
+                  <option>AC 2 Tier (2A)</option>
+                  <option>AC First Class (1A)</option>
+                  <option>Chair Car (CC)</option>
+                </select>
+              </div>
+              <fieldset style="border:0; margin:0; padding:0;">
+                <legend class="field__label">Gender</legend>
+                <label class="choice"><input type="radio" name="gender" checked> Male</label>
+                <label class="choice"><input type="radio" name="gender"> Female</label>
+                <label class="choice"><input type="radio" name="gender"> Other</label>
+              </fieldset>
+            </div>
+            <div class="cluster" style="margin-top: 16px;">
+              <button class="btn btn--secondary" id="showError" type="button">Show a validation message</button>
+              <button class="btn btn--ghost" id="clearError" type="button">Clear the message</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             Journey search
+             Swap exchanges the two station fields. Search itself is connected
+             when the train search module is built.
+             ============================================================ -->
+        <section class="specimen" id="search" aria-labelledby="search-title">
+          <h2 class="sr-only" id="search-title">Journey search</h2>
+          <form class="journey-search" id="journeySpecimen">
+            <div class="journey-search__route">
+              <div class="field">
+                <label class="field__label" for="originStation">From</label>
+                <input class="field__input" id="originStation" name="origin" autocomplete="off" value="New Delhi">
+              </div>
+              <button class="journey-search__swap" type="button" data-station-swap data-from="originStation" data-to="destinationStation" aria-label="Swap origin and destination">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 7h11M15 4l3 3-3 3M17 17H6M9 14l-3 3 3 3"></path>
+                </svg>
+              </button>
+              <div class="field">
+                <label class="field__label" for="destinationStation">To</label>
+                <input class="field__input" id="destinationStation" name="destination" autocomplete="off" value="Howrah">
+              </div>
+            </div>
+            <div class="field">
+              <label class="field__label" for="journeyDate">Date</label>
+              <input class="field__input" id="journeyDate" type="date" value="2026-11-18">
+            </div>
+            <button class="btn btn--primary" type="submit">Search trains</button>
+          </form>
+          <div class="cluster" style="margin-top: 12px;" data-chip-group data-chip-mode="single" aria-label="Class filter">
+            <button class="chip chip--active" type="button">All classes</button>
+            <button class="chip" type="button">SL</button>
+            <button class="chip" type="button">3A</button>
+            <button class="chip" type="button">2A</button>
+            <button class="chip" type="button">1A</button>
+            <button class="chip" type="button">CC</button>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             Train card
+             The figures below are a visual specimen. The search module
+             replaces them with availability for the chosen train and date.
+             ============================================================ -->
+        <section class="specimen" id="trains" aria-labelledby="trains-title">
+          <h2 class="sr-only" id="trains-title">Train card</h2>
+          <article class="train-card">
+            <div class="train-card__top">
+              <div>
+                <p class="train-number">12301</p>
+                <h3>Howrah Rajdhani</h3>
+              </div>
+              <span class="badge">Sample result</span>
+            </div>
+            <div class="train-card__route">
+              <div>
+                <p class="train-card__time">16:55</p>
+                <p class="muted">New Delhi</p>
+              </div>
+              <div class="train-card__duration"><span>17h 05m</span></div>
+              <div>
+                <p class="train-card__time">10:00</p>
+                <p class="muted">Howrah · next day</p>
+              </div>
+            </div>
+            <div class="train-card__actions">
+              <button class="btn btn--ghost" type="button" data-expand-train aria-expanded="false" aria-controls="sampleAvailability">
+                <span data-expand-label>View availability</span>
+              </button>
+              <button class="btn btn--primary" type="button" data-demo-toast="Booking starts from a search result in the next module.">Book now</button>
+            </div>
+            <div class="train-card__details" id="sampleAvailability" hidden>
+              <ul class="fare-list">
+                <li><span>Sleeper (SL)</span><span>142 seats</span><span class="mono">₹845</span><button class="btn btn--secondary" type="button" data-demo-toast="Class selection continues on the booking page.">Select</button></li>
+                <li><span>AC 3 Tier (3A)</span><span>46 seats</span><span class="mono">₹1,845</span><button class="btn btn--secondary" type="button" data-demo-toast="Class selection continues on the booking page.">Select</button></li>
+                <li><span>AC 2 Tier (2A)</span><span>12 seats</span><span class="mono">₹2,640</span><button class="btn btn--secondary" type="button" data-demo-toast="Class selection continues on the booking page.">Select</button></li>
+              </ul>
+            </div>
+          </article>
+        </section>
+
+        <!-- ============================================================
+             Charts and statistics
+             Dashboard pages will set the widths from booking data.
+             ============================================================ -->
+        <section class="specimen" id="charts" aria-labelledby="charts-title">
+          <h2 class="sr-only" id="charts-title">Charts</h2>
+          <div class="stat-grid" style="margin-bottom: 16px;">
+            <article class="stat-card stat-card--accent">
+              <p class="stat-card__label">Tickets booked</p>
+              <p class="stat-card__value">267</p>
+              <p class="stat-card__note">Sample total</p>
+            </article>
+            <article class="stat-card">
+              <p class="stat-card__label">Sleeper</p>
+              <p class="stat-card__value">128</p>
+              <p class="stat-card__note">SL</p>
+            </article>
+            <article class="stat-card">
+              <p class="stat-card__label">AC 3 Tier</p>
+              <p class="stat-card__value">86</p>
+              <p class="stat-card__note">3A</p>
+            </article>
+            <article class="stat-card">
+              <p class="stat-card__label">AC 2 Tier</p>
+              <p class="stat-card__value">41</p>
+              <p class="stat-card__note">2A</p>
+            </article>
+          </div>
+          <div class="grid-2">
+            <article class="card">
+              <div class="card__header"><h2 class="card__title">Tickets by class</h2></div>
+              <div class="card__body">
+                <div class="bar-chart" role="img" aria-label="Sample tickets by class. Sleeper 128, 3A 86, 2A 41, 1A 12.">
+                  <div class="bar-chart__row"><span class="bar-chart__label">Sleeper</span><span class="bar-chart__track"><span class="bar-chart__fill" style="width:100%"></span></span><span class="bar-chart__value">128</span></div>
+                  <div class="bar-chart__row"><span class="bar-chart__label">3A</span><span class="bar-chart__track"><span class="bar-chart__fill" style="width:67%"></span></span><span class="bar-chart__value">86</span></div>
+                  <div class="bar-chart__row"><span class="bar-chart__label">2A</span><span class="bar-chart__track"><span class="bar-chart__fill" style="width:32%"></span></span><span class="bar-chart__value">41</span></div>
+                  <div class="bar-chart__row"><span class="bar-chart__label">1A</span><span class="bar-chart__track"><span class="bar-chart__fill" style="width:9%"></span></span><span class="bar-chart__value">12</span></div>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card__header"><h2 class="card__title">Quarterly sales</h2></div>
+              <div class="card__body">
+                <div class="column-chart" role="img" aria-label="Sample quarterly sales. Q1 18 lakh, Q2 24 lakh, Q3 21 lakh, Q4 29 lakh.">
+                  <div class="column-chart__item"><span class="column-chart__value">18L</span><div class="column-chart__plot"><span class="column-chart__bar" style="height:62%"></span></div><span class="column-chart__label">Q1</span></div>
+                  <div class="column-chart__item"><span class="column-chart__value">24L</span><div class="column-chart__plot"><span class="column-chart__bar" style="height:82%"></span></div><span class="column-chart__label">Q2</span></div>
+                  <div class="column-chart__item"><span class="column-chart__value">21L</span><div class="column-chart__plot"><span class="column-chart__bar" style="height:72%"></span></div><span class="column-chart__label">Q3</span></div>
+                  <div class="column-chart__item"><span class="column-chart__value">29L</span><div class="column-chart__plot"><span class="column-chart__bar" style="height:100%"></span></div><span class="column-chart__label">Q4</span></div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             Table
+             Admin customer rows and booking history will reuse this table.
+             ============================================================ -->
+        <section class="card specimen" id="tables" aria-labelledby="tables-title">
+          <div class="card__header">
+            <h2 class="card__title" id="tables-title">Customer table</h2>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th scope="col">Customer ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Mobile</th>
+                  <th scope="col">Tickets</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="mono">CUS-1008</td>
+                  <td>Aarav Mehta</td>
+                  <td>9876543210</td>
+                  <td>3</td>
+                  <td><span class="badge badge--success">Active</span></td>
+                  <td><button class="btn btn--danger" type="button" data-open-modal="deleteModal">Delete</button></td>
+                </tr>
+                <tr>
+                  <td class="mono">CUS-1009</td>
+                  <td>Meera Iyer</td>
+                  <td>9123456780</td>
+                  <td>1</td>
+                  <td><span class="badge badge--warning">Pending</span></td>
+                  <td><button class="btn btn--danger" type="button" data-open-modal="deleteModal">Delete</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             Seat map
+             Click an available berth to select it. Occupied berths stay locked.
+             ============================================================ -->
+        <section class="card specimen" id="seats" aria-labelledby="seats-title">
+          <div class="card__header">
+            <h2 class="card__title" id="seats-title">Sleeper bay</h2>
+          </div>
+          <div class="card__body stack">
+            <ul class="seat-legend">
+              <li><span class="seat seat--available" aria-hidden="true"></span> Available</li>
+              <li><span class="seat seat--selected" aria-hidden="true"></span> Selected</li>
+              <li><span class="seat seat--occupied" aria-hidden="true"></span> Occupied</li>
+            </ul>
+            <div class="coach" aria-label="Sample sleeper bay">
+              <div class="coach__bay">
+                <button class="seat seat--available" type="button" aria-label="Seat 1, lower">1</button>
+                <button class="seat seat--available" type="button" aria-label="Seat 2, middle">2</button>
+                <button class="seat seat--occupied" type="button" disabled aria-label="Seat 3, occupied">3</button>
+                <button class="seat seat--available" type="button" aria-label="Seat 4, lower">4</button>
+                <button class="seat seat--selected" type="button" aria-label="Seat 5, selected">5</button>
+                <button class="seat seat--available" type="button" aria-label="Seat 6, upper">6</button>
+              </div>
+              <div class="coach__bay coach__bay--side">
+                <button class="seat seat--available" type="button" aria-label="Seat 7, side lower">7</button>
+                <button class="seat seat--occupied" type="button" disabled aria-label="Seat 8, occupied">8</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             Feedback
+             Modals, toasts, alerts, and the empty state.
+             ============================================================ -->
+        <section class="specimen" id="feedback" aria-labelledby="feedback-title">
+          <h2 class="sr-only" id="feedback-title">Feedback</h2>
+          <div class="grid-2">
+            <article class="card">
+              <div class="card__header"><h2 class="card__title">Messages</h2></div>
+              <div class="card__body stack">
+                <div class="alert alert--success" role="status">The booking reference has been saved on this browser.</div>
+                <div class="alert alert--error" role="alert">The origin and destination cannot be the same station.</div>
+                <div class="cluster">
+                  <button class="btn btn--primary" type="button" data-demo-toast="The ticket remains confirmed." data-demo-variant="success">Success toast</button>
+                  <button class="btn btn--secondary" type="button" data-demo-toast="The station list could not be loaded." data-demo-variant="error">Error toast</button>
+                  <button class="btn btn--secondary" type="button" data-open-modal="cancelModal">Cancel ticket</button>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="empty-state">
+                <h2 class="empty-state__title" id="empty-title">No tickets yet</h2>
+                <p class="empty-state__text">When a journey is booked, it will appear in history with its train, date, and status.</p>
+                <a class="btn btn--primary" href="#search">Search a train</a>
+              </div>
+            </article>
+          </div>
+          <article class="card" style="margin-top: 16px;">
+            <div class="card__header"><h2 class="card__title">Confirmation summary</h2></div>
+            <div class="card__body">
+              <dl class="meta-list">
+                <div><dt>Booking ID</dt><dd class="mono">RD-24091</dd></div>
+                <div><dt>Train</dt><dd>12301 Howrah Rajdhani</dd></div>
+                <div><dt>Route</dt><dd>New Delhi to Howrah</dd></div>
+                <div><dt>Date</dt><dd>18 Nov 2026</dd></div>
+                <div><dt>Class</dt><dd>AC 3 Tier</dd></div>
+                <div><dt>Status</dt><dd><span class="badge badge--success">Confirmed</span></dd></div>
+              </dl>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       Confirmation dialogs
+       The same dialog pattern is used before cancelling a ticket
+       and before deleting a customer.
+       ============================================================ -->
+  <div class="modal" id="cancelModal" hidden>
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="cancelTitle">
+      <h2 id="cancelTitle">Cancel this ticket?</h2>
+      <p>The berths return to the available list for that train, date, and class. This preview does not change a stored booking.</p>
+      <div class="modal__actions">
+        <button class="btn btn--secondary" type="button" data-close-modal data-initial-focus>Keep ticket</button>
+        <button class="btn btn--danger" id="confirmCancel" type="button" data-close-modal>Cancel ticket</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="deleteModal" hidden>
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="deleteTitle">
+      <h2 id="deleteTitle">Delete this customer?</h2>
+      <p>The customer will no longer be able to sign in. Existing ticket records stay so sales figures remain intact.</p>
+      <div class="modal__actions">
+        <button class="btn btn--secondary" type="button" data-close-modal data-initial-focus>Keep customer</button>
+        <button class="btn btn--danger" id="confirmDelete" type="button" data-close-modal>Delete customer</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import {
+      showToast,
+      setFieldError,
+      clearFieldError,
+      setButtonLoading,
+      formatInr,
+      formatDisplayDate,
+      formatClock
+    } from "../js/common.js";
+
+    const formatSample = document.getElementById("formatSample");
+    formatSample.textContent = `${formatInr(1845)} · ${formatDisplayDate("2026-11-18")} · ${formatClock("18:40")}`;
+
+    const app = document.getElementById("app");
+    const themeToggle = document.getElementById("themeToggle");
+    const rolePill = document.getElementById("rolePill");
+    const shellRole = document.getElementById("shellRole");
+
+    themeToggle.addEventListener("click", () => {
+      const admin = app.classList.toggle("app--admin");
+      app.classList.toggle("app--customer", !admin);
+      themeToggle.textContent = admin ? "Preview customer shell" : "Preview admin shell";
+      rolePill.textContent = admin ? "Admin" : "Customer";
+      shellRole.textContent = admin ? "Administrator" : "Customer";
+      showToast(admin ? "Admin shell. The same components, with a darker sidebar." : "Customer shell.", "info");
+    });
+
+    document.getElementById("logoutButton").addEventListener("click", () => {
+      showToast("Logout clears the browser session in the authentication module.", "info");
+    });
+
+    document.getElementById("showError").addEventListener("click", () => {
+      setFieldError(document.getElementById("sampleEmail"), "Enter an email address such as name@example.com.");
+    });
+
+    document.getElementById("clearError").addEventListener("click", () => {
+      clearFieldError(document.getElementById("sampleEmail"));
+    });
+
+    document.getElementById("loadButton").addEventListener("click", () => {
+      const button = document.getElementById("loadButton");
+      setButtonLoading(button, true);
+      window.setTimeout(() => setButtonLoading(button, false), 1200);
+    });
+
+    document.getElementById("journeySpecimen").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const origin = document.getElementById("originStation").value;
+      const destination = document.getElementById("destinationStation").value;
+      showToast(`Search from ${origin} to ${destination} is connected in the train search module.`, "info");
+    });
+
+    document.getElementById("confirmCancel").addEventListener("click", () => {
+      showToast("This preview does not cancel a stored ticket. History will.", "info");
+    });
+
+    document.getElementById("confirmDelete").addEventListener("click", () => {
+      showToast("Customer deletion is connected in the admin module.", "info");
+    });
+
+    document.querySelectorAll("[data-demo-toast]").forEach((button) => {
+      button.addEventListener("click", () => {
+        showToast(button.getAttribute("data-demo-toast"), button.getAttribute("data-demo-variant") || "info");
+      });
+    });
+
+    const sectionLinks = Array.from(document.querySelectorAll(".sidebar__nav .sidebar__link"));
+    const sections = sectionLinks
+      .map((link) => document.querySelector(link.getAttribute("href")))
+      .filter(Boolean);
+
+    /**
+     * Marks the sidebar link for the section currently nearest the top.
+     * The offset matches the sticky top bar so the highlight changes
+     * when a heading passes underneath it.
+     */
+    function markActiveSection() {
+      let current = sections[0];
+      sections.forEach((section) => {
+        if (section.getBoundingClientRect().top <= 120) {
+          current = section;
+        }
+      });
+      sectionLinks.forEach((link) => {
+        link.classList.toggle("is-active", current && link.getAttribute("href") === `#${current.id}`);
+      });
+    }
+
+    document.addEventListener("scroll", markActiveSection, { passive: true });
+    markActiveSection();
+  </script>
+</body>
+</html>

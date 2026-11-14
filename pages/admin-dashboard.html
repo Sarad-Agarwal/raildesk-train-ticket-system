@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin home · RailDesk</title>
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/premium.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <!-- ============================================================
+       Admin home
+       US_UI_003. Class totals, quarterly sales, and the customer table.
+       Customer sessions are refused.
+       ============================================================ -->
+  <div class="app app--admin">
+    <div class="sidebar-backdrop" data-sidebar-close></div>
+    <aside class="sidebar" data-admin-nav aria-label="Admin"></aside>
+    <div class="app__main">
+      <header class="topbar">
+        <button class="icon-btn" type="button" data-sidebar-toggle aria-expanded="false" aria-label="Toggle navigation">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+        <div class="topbar__title">
+          <p class="eyebrow">Admin</p>
+          <h1>Home</h1>
+        </div>
+      </header>
+
+      <main class="app__content stack" id="content">
+        <div class="alert alert--error" id="pageAlert" role="alert" hidden></div>
+        <header class="page-header">
+          <div>
+            <p class="eyebrow">Welcome</p>
+            <h2 id="welcomeName">Administrator</h2>
+          </div>
+        </header>
+
+        <section class="stack" aria-labelledby="aggregateTitle">
+          <h2 class="sr-only" id="aggregateTitle">Ticket and sales totals</h2>
+          <div class="stat-grid" id="classStats"></div>
+          <div class="grid-2">
+            <article class="card">
+              <div class="card__header"><h2 class="card__title">Tickets by class</h2></div>
+              <div class="card__body">
+                <div class="bar-chart" id="classChart" role="img" aria-label="Tickets booked in each class"></div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card__header"><h2 class="card__title" id="salesTitle">Sales</h2></div>
+              <div class="card__body">
+                <div class="column-chart" id="quarterChart" role="img" aria-label="Sales by quarter"></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="card" aria-labelledby="customerTitle">
+          <div class="card__header">
+            <h2 class="card__title" id="customerTitle">Customers</h2>
+          </div>
+          <div class="card__body stack">
+            <p class="muted">Ticket counts leave out cancelled bookings. Deleting a customer removes the account and keeps the booking records.</p>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Customer ID</th>
+                    <th scope="col">Customer name</th>
+                    <th scope="col">Mobile number</th>
+                    <th scope="col">Number of tickets booked</th>
+                    <th scope="col">Delete customer</th>
+                  </tr>
+                </thead>
+                <tbody id="customerRows"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal" id="deleteModal" hidden>
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="deleteTitle" aria-describedby="deleteSummary">
+      <h2 id="deleteTitle">Delete this customer?</h2>
+      <p id="deleteSummary"></p>
+      <p>The account is removed. Bookings already stored stay in the sales history.</p>
+      <div class="modal__actions">
+        <button class="btn btn--secondary" type="button" data-close-modal data-initial-focus>Keep customer</button>
+        <button class="btn btn--danger" id="confirmDelete" type="button">Delete customer</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../js/admin-dashboard.js"></script>
+</body>
+</html>

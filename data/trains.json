@@ -1,0 +1,126 @@
+[
+  {
+    "id": "TRN-12301",
+    "number": "12301",
+    "name": "Howrah Rajdhani",
+    "ownership": "Indian Railways",
+    "seats": 512,
+    "runsOn": [0, 1, 2, 3, 4, 5, 6],
+    "fares": { "First Class": 4850, "AC Tier 1": 3650, "AC Tier 2": 2480, "Tatkal": 2970 },
+    "stops": [
+      { "name": "New Delhi", "arrival": "", "departure": "16:55", "day": 0 },
+      { "name": "Kanpur Central", "arrival": "21:38", "departure": "21:43", "day": 0 },
+      { "name": "Prayagraj Junction", "arrival": "00:55", "departure": "01:05", "day": 1 },
+      { "name": "Patna Junction", "arrival": "05:20", "departure": "05:30", "day": 1 },
+      { "name": "Howrah", "arrival": "10:05", "departure": "", "day": 1 }
+    ]
+  },
+  {
+    "id": "TRN-12302",
+    "number": "12302",
+    "name": "Howrah Rajdhani",
+    "ownership": "Indian Railways",
+    "seats": 512,
+    "runsOn": [0, 1, 2, 3, 4, 5, 6],
+    "fares": { "First Class": 4850, "AC Tier 1": 3650, "AC Tier 2": 2480, "Tatkal": 2970 },
+    "stops": [
+      { "name": "Howrah", "arrival": "", "departure": "14:05", "day": 0 },
+      { "name": "Patna Junction", "arrival": "18:40", "departure": "18:50", "day": 0 },
+      { "name": "Prayagraj Junction", "arrival": "23:10", "departure": "23:20", "day": 0 },
+      { "name": "Kanpur Central", "arrival": "02:15", "departure": "02:20", "day": 1 },
+      { "name": "New Delhi", "arrival": "07:15", "departure": "", "day": 1 }
+    ]
+  },
+  {
+    "id": "TRN-12951",
+    "number": "12951",
+    "name": "Mumbai Rajdhani",
+    "ownership": "Indian Railways",
+    "seats": 480,
+    "runsOn": [0, 1, 2, 3, 4, 5, 6],
+    "fares": { "First Class": 4520, "AC Tier 1": 3380, "AC Tier 2": 2290, "Tatkal": 2750 },
+    "stops": [
+      { "name": "New Delhi", "arrival": "", "departure": "16:55", "day": 0 },
+      { "name": "Kota Junction", "arrival": "21:35", "departure": "21:45", "day": 0 },
+      { "name": "Vadodara Junction", "arrival": "05:05", "departure": "05:15", "day": 1 },
+      { "name": "Mumbai Central", "arrival": "08:35", "departure": "", "day": 1 }
+    ]
+  },
+  {
+    "id": "TRN-12952",
+    "number": "12952",
+    "name": "Mumbai Rajdhani",
+    "ownership": "Indian Railways",
+    "seats": 480,
+    "runsOn": [0, 1, 2, 3, 4, 5, 6],
+    "fares": { "First Class": 4520, "AC Tier 1": 3380, "AC Tier 2": 2290, "Tatkal": 2750 },
+    "stops": [
+      { "name": "Mumbai Central", "arrival": "", "departure": "17:00", "day": 0 },
+      { "name": "Vadodara Junction", "arrival": "20:20", "departure": "20:30", "day": 0 },
+      { "name": "Kota Junction", "arrival": "03:55", "departure": "04:05", "day": 1 },
+      { "name": "New Delhi", "arrival": "08:35", "departure": "", "day": 1 }
+    ]
+  },
+  {
+    "id": "TRN-22691",
+    "number": "22691",
+    "name": "Bengaluru Rajdhani",
+    "ownership": "Indian Railways",
+    "seats": 448,
+    "runsOn": [0, 1, 2, 3, 4, 5, 6],
+    "fares": { "First Class": 5120, "AC Tier 1": 3890, "AC Tier 2": 2640, "Tatkal": 3180 },
+    "stops": [
+      { "name": "New Delhi", "arrival": "", "departure": "20:15", "day": 0 },
+      { "name": "Jhansi Junction", "arrival": "00:40", "departure": "00:48", "day": 1 },
+      { "name": "Bhopal Junction", "arrival": "04:05", "departure": "04:15", "day": 1 },
+      { "name": "KSR Bengaluru", "arrival": "06:40", "departure": "", "day": 2 }
+    ]
+  },
+  {
+    "id": "TRN-22692",
+    "number": "22692",
+    "name": "Bengaluru Rajdhani",
+    "ownership": "Indian Railways",
+    "seats": 448,
+    "runsOn": [0, 1, 2, 3, 4, 5, 6],
+    "fares": { "First Class": 5120, "AC Tier 1": 3890, "AC Tier 2": 2640, "Tatkal": 3180 },
+    "stops": [
+      { "name": "KSR Bengaluru", "arrival": "", "departure": "20:00", "day": 0 },
+      { "name": "Bhopal Junction", "arrival": "22:10", "departure": "22:20", "day": 1 },
+      { "name": "Jhansi Junction", "arrival": "01:40", "departure": "01:48", "day": 2 },
+      { "name": "New Delhi", "arrival": "06:10", "departure": "", "day": 2 }
+    ]
+  },
+  {
+    "id": "TRN-12621",
+    "number": "12621",
+    "name": "Tamil Nadu Express",
+    "ownership": "Indian Railways",
+    "seats": 720,
+    "runsOn": [0, 1, 2, 4, 5, 6],
+    "fares": { "First Class": 3980, "AC Tier 1": 2860, "AC Tier 2": 1940, "Tatkal": 2330 },
+    "stops": [
+      { "name": "New Delhi", "arrival": "", "departure": "22:30", "day": 0 },
+      { "name": "Bhopal Junction", "arrival": "08:05", "departure": "08:15", "day": 1 },
+      { "name": "Nagpur", "arrival": "14:20", "departure": "14:30", "day": 1 },
+      { "name": "Vijayawada Junction", "arrival": "04:10", "departure": "04:20", "day": 2 },
+      { "name": "Chennai Central", "arrival": "10:40", "departure": "", "day": 2 }
+    ]
+  },
+  {
+    "id": "TRN-12622",
+    "number": "12622",
+    "name": "Tamil Nadu Express",
+    "ownership": "Indian Railways",
+    "seats": 720,
+    "runsOn": [0, 1, 2, 4, 5, 6],
+    "fares": { "First Class": 3980, "AC Tier 1": 2860, "AC Tier 2": 1940, "Tatkal": 2330 },
+    "stops": [
+      { "name": "Chennai Central", "arrival": "", "departure": "22:00", "day": 0 },
+      { "name": "Vijayawada Junction", "arrival": "04:15", "departure": "04:25", "day": 1 },
+      { "name": "Nagpur", "arrival": "18:00", "departure": "18:10", "day": 1 },
+      { "name": "Bhopal Junction", "arrival": "00:20", "departure": "00:30", "day": 2 },
+      { "name": "New Delhi", "arrival": "10:30", "departure": "", "day": 2 }
+    ]
+  }
+]

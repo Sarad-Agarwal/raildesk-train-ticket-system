@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in · RailDesk</title>
+  <meta name="description" content="Sign in to the RailDesk customer or admin portal.">
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/premium.css">
+</head>
+<body>
+  <a class="skip-link" href="#loginForm">Skip to sign in</a>
+
+  <!-- ============================================================
+       Login
+       US_UI_001. Username and password are required.
+       Customer and Admin use this same page. Registration is separate.
+       ============================================================ -->
+  <main class="auth-layout">
+    <section class="auth-panel" aria-labelledby="login-heading">
+      <div class="rail-scene" aria-hidden="true">
+        <div class="rail-scene__sky"></div>
+        <svg class="rail-scene__train" viewBox="0 0 640 160" fill="none">
+          <path d="M40 108h560" stroke="#F0D9A0" stroke-width="2" opacity="0.35"></path>
+          <rect x="78" y="58" width="150" height="52" rx="10" fill="#F4F7FB"></rect>
+          <rect x="228" y="64" width="132" height="46" rx="8" fill="#E7EEF6"></rect>
+          <rect x="360" y="64" width="132" height="46" rx="8" fill="#E7EEF6"></rect>
+          <path d="M40 78c18-28 48-40 86-40h42c8 0 14 8 14 18v54H40V78Z" fill="#F0D9A0"></path>
+          <rect x="58" y="62" width="36" height="22" rx="4" fill="#12325C"></rect>
+          <rect x="96" y="70" width="110" height="22" rx="3" fill="#12325C" opacity="0.85"></rect>
+          <rect x="246" y="76" width="96" height="16" rx="3" fill="#12325C" opacity="0.55"></rect>
+          <rect x="378" y="76" width="96" height="16" rx="3" fill="#12325C" opacity="0.55"></rect>
+          <circle cx="110" cy="114" r="14" fill="#071525"></circle>
+          <circle cx="110" cy="114" r="6" fill="#C4A15A"></circle>
+          <circle cx="168" cy="114" r="14" fill="#071525"></circle>
+          <circle cx="168" cy="114" r="6" fill="#C4A15A"></circle>
+          <circle cx="292" cy="114" r="12" fill="#071525"></circle>
+          <circle cx="430" cy="114" r="12" fill="#071525"></circle>
+          <circle cx="24" cy="86" r="6" fill="#F0D9A0"></circle>
+        </svg>
+        <div class="rail-scene__track"></div>
+      </div>
+      <div>
+        <a class="brand brand--light" href="index.html">
+          <img class="brand__mark" src="assets/mark.svg" alt="">
+          <span>
+            <span class="brand__name">RailDesk</span>
+            <span class="brand__tag">Train reservations</span>
+          </span>
+        </a>
+        <p class="eyebrow">Sign in</p>
+        <h1 id="login-heading">Customer and admin access.</h1>
+        <p class="lede">Use a customer account to open the home page, or an administrator account for the admin portal.</p>
+      </div>
+      <p class="auth-panel__foot">Demonstration sign-in. Passwords are stored in this browser only.</p>
+    </section>
+
+    <section class="auth-form">
+      <div class="auth-card">
+        <h2>Sign in</h2>
+        <div class="role-switch" role="group" aria-label="Choose a portal">
+          <button class="role-switch__btn is-active" type="button" data-role="customer" aria-pressed="true">Customer</button>
+          <button class="role-switch__btn" type="button" data-role="admin" aria-pressed="false">Admin</button>
+        </div>
+
+        <div class="alert alert--error" id="formAlert" role="alert" hidden></div>
+
+        <form id="loginForm" novalidate>
+          <div class="stack">
+            <div class="field">
+              <label class="field__label" for="username">Username</label>
+              <input class="field__input" id="username" name="username" type="text" autocomplete="username" required>
+              <p class="field__error" hidden></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="password">Password</label>
+              <div class="field__control">
+                <input class="field__input" id="password" name="password" type="password" autocomplete="current-password" required>
+                <button class="field__reveal" type="button" data-password-toggle="password" aria-pressed="false">Show</button>
+              </div>
+              <p class="field__error" hidden></p>
+            </div>
+            <button class="btn btn--primary" type="submit">Sign in</button>
+          </div>
+        </form>
+
+        <p class="auth-switch" id="registerLink">New customer? <a href="pages/register.html">Create an account</a></p>
+        <p class="auth-note">Customer demo: aaravmehta / Travel@123. Admin demo: adminuser / Admin@123.</p>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/login.js"></script>
+</body>
+</html>
