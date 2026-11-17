@@ -1,0 +1,1717 @@
+# BUILD PULSEBOARD AI — COMPLETE, PRODUCTION-QUALITY CUSTOMER FEEDBACK INTELLIGENCE PLATFORM
+
+You are acting as a senior full-stack engineer, AI product architect, UI/UX designer, data analyst, and product strategist.
+
+Your task is to DESIGN AND BUILD a complete, working web application called **PulseBoard AI**.
+
+Do not just create a landing page, a static dashboard, or a UI prototype. Build a functional, visually impressive, end-to-end application with working interactions, realistic data, analytics, AI-powered insights, file uploads, filtering, and report exports.
+
+I want the result to look and feel like a premium SaaS product that could be demonstrated to hackathon judges, business owners, product managers, and potential customers.
+
+You have been given this entire specification. Make sensible implementation decisions yourself. Do not stop to ask me questions. Inspect the existing project first, understand its setup, and then implement the application.
+
+---
+
+# 1. PRODUCT VISION
+
+## Product name
+
+**PulseBoard AI**
+
+## Tagline
+
+"Understand your customers. Improve your business."
+
+## One-line description
+
+An AI-powered customer feedback intelligence platform that transforms thousands of customer reviews into actionable business decisions.
+
+## The problem we are solving
+
+Businesses receive customer feedback from multiple sources:
+
+- Google reviews
+- E-commerce reviews
+- Food delivery platforms
+- Customer surveys
+- CSV and Excel files
+- Customer support feedback
+- Manually collected reviews
+
+But collecting feedback is not the same as understanding it.
+
+Business owners often face these problems:
+
+1. They cannot quickly understand whether customer satisfaction is improving or declining.
+2. They see an average rating but do not know what is causing negative feedback.
+3. A single review may contain several positive and negative experiences.
+4. They do not know which complaints are recurring.
+5. They cannot easily identify emerging problems.
+6. They do not know which business problem deserves immediate attention.
+7. They lack practical recommendations based on actual customer feedback.
+8. They spend hours manually reading reviews and preparing reports.
+9. They cannot easily compare customer sentiment across products, locations, services, or time periods.
+
+PulseBoard AI should solve these problems in one place.
+
+## Our core promise
+
+**Don't just read reviews. Discover what your customers are trying to tell you and what your business should do next.**
+
+---
+
+# 2. WHAT MAKES PULSEBOARD AI DIFFERENT?
+
+This is extremely important.
+
+Do not build another ordinary sentiment-analysis dashboard.
+
+Our competitive advantage should be the combination of sentiment intelligence, root-cause discovery, issue prioritisation, trend detection, and actionable recommendations.
+
+Implement the following differentiating features.
+
+## Feature A: Aspect-Level Sentiment Intelligence
+
+Ordinary sentiment analysis classifies an entire review as positive, neutral, or negative.
+
+Our system must go deeper.
+
+Example review:
+
+"The food was delicious, but delivery was extremely late and the packaging was damaged."
+
+Expected analysis:
+
+- Food quality: Positive
+- Delivery speed: Negative
+- Packaging: Negative
+- Overall sentiment: Negative or mixed, depending on the analysis
+- Main complaint: Late delivery and damaged packaging
+- Suggested urgency: High
+
+One review can contain multiple aspects with different sentiment values.
+
+Implement aspect-level analysis for relevant categories such as:
+
+- Product quality
+- Food quality
+- Delivery speed
+- Packaging
+- Customer service
+- Pricing
+- Product availability
+- Website experience
+- Staff behaviour
+- Payment experience
+- Cleanliness
+- Overall experience
+
+Categories must be adaptable to the uploaded dataset.
+
+Why this matters: Business owners can discover exactly which part of their service is creating dissatisfaction rather than receiving one generic negative score.
+
+## Feature B: Root Cause Discovery
+
+Do not simply display "Delivery is negative."
+
+Explain what is happening.
+
+Example:
+
+"Delivery-related complaints increased during the selected period. Several customers mention delayed deliveries, particularly during evening hours."
+
+Every AI insight should ideally contain:
+
+- What happened
+- Evidence from customer reviews
+- Why it might be happening
+- Business impact
+- Suggested action
+- Confidence level
+
+Clearly distinguish actual evidence from possible explanations.
+
+Never present an AI hypothesis as a verified fact.
+
+## Feature C: Smart Issue Prioritisation
+
+Create an intelligent issue-priority system.
+
+Businesses usually have limited time and resources. They need to know what to fix first.
+
+Each detected issue should receive a priority level:
+
+- Critical
+- High
+- Medium
+- Low
+
+Consider:
+
+- Number of affected reviews
+- Negative sentiment percentage
+- Recent increase in complaints
+- Average rating associated with the issue
+- Severity of the complaint
+- Whether the problem is recurring
+
+Create a transparent, explainable priority score from 0–100.
+
+Display the factors contributing to that score.
+
+Example:
+
+**Delivery delays — Priority 91/100**
+
+- 42 related complaints
+- Negative feedback increased by 28%
+- Several recent one-star reviews
+- Repeated mentions of evening delivery delays
+
+Suggested action: Review evening delivery capacity and delivery-partner allocation.
+
+Do not claim the score represents a scientifically validated industry standard. It is a project-defined prioritisation model.
+
+## Feature D: Early Warning System
+
+This is one of the most important differentiators.
+
+Detect when a negative issue starts increasing.
+
+Example:
+
+"Packaging complaints increased from 8% to 23% compared with the previous period."
+
+Show:
+
+- Previous-period complaint rate
+- Current-period complaint rate
+- Percentage-point change
+- Number of affected reviews
+- Whether the increase is significant enough to flag
+
+Use clear labels such as:
+
+- Emerging issue
+- Worsening trend
+- Improving issue
+- Stable
+- Insufficient data
+
+Never manufacture an alert when there is no supporting data.
+
+## Feature E: Time-Based Customer Intelligence
+
+Provide flexible date filters:
+
+- Last 4 hours
+- Last 12 hours
+- Last 24 hours
+- Last 7 days
+- Last 15 days
+- Last 30 days
+- Last 2 months
+- Last 3 months
+- Last 6 months
+- Last 1 year
+- Custom date range
+
+All relevant dashboard metrics, charts, issue counts, AI insights, comparisons, and reports must respect the selected date range.
+
+Also provide a comparison with the previous equivalent period when sufficient data exists.
+
+For example:
+
+Current 7 days vs previous 7 days.
+
+Do not compare unrelated periods.
+
+If the dataset does not contain enough records for a selected range, show an informative empty state rather than misleading results.
+
+## Feature F: AI Business Action Plan
+
+Convert insights into practical business recommendations.
+
+Example:
+
+Problem:
+Customers are repeatedly reporting delayed deliveries.
+
+Evidence:
+38 negative reviews mention delivery delays.
+
+Business impact:
+Potential decline in repeat purchases and customer satisfaction.
+
+Recommended actions:
+
+1. Review delivery-partner performance.
+2. Examine peak-hour delivery capacity.
+3. Track delivery completion times.
+4. Contact customers affected by severe delays.
+
+Each recommendation should have:
+
+- Priority
+- Supporting evidence
+- Expected business benefit
+- Suggested next step
+
+Where possible, allow users to mark recommendations as:
+
+- To do
+- In progress
+- Completed
+
+Store action status locally so it remains available after refreshing the page.
+
+## Feature G: AI Review Response Assistant
+
+Create an additional feature that generates professional responses to customer reviews.
+
+Allow users to select a review and generate:
+
+- Empathetic response
+- Professional response
+- Short response
+- Apology-focused response
+- Positive-review appreciation response
+
+Responses must reference the actual review content.
+
+Never invent promises, refunds, compensation, or actions that the business has not confirmed.
+
+Allow users to copy the generated response.
+
+## Feature H: Evidence-Linked Intelligence
+
+This feature is essential for trust.
+
+Every major AI insight should link back to the reviews that support it.
+
+For example:
+
+Insight: "Packaging complaints are increasing."
+
+Provide an option to view the actual customer reviews that mention packaging.
+
+The user must be able to verify the AI's interpretation.
+
+Do not display unsupported AI-generated statistics.
+
+---
+
+# 3. TARGET USERS
+
+Design the application for:
+
+1. Small and medium-sized business owners.
+2. Restaurant and food delivery businesses.
+3. E-commerce businesses.
+4. Retail stores.
+5. Product managers.
+6. Customer experience teams.
+7. Marketing and business analysts.
+
+The interface should be simple enough for a non-technical business owner but powerful enough for an analyst.
+
+The first demo dataset can focus on a food delivery business, but the product architecture should support other business types.
+
+---
+
+# 4. REQUIRED TECHNOLOGY STACK
+
+Use the following stack unless the existing project already has a suitable equivalent.
+
+Frontend:
+- Next.js with App Router
+- React
+- TypeScript
+- Tailwind CSS
+- shadcn/ui where useful
+- Lucide React icons
+- Framer Motion for purposeful animations
+- Recharts for analytics and visualisations
+
+Data handling:
+- PapaParse for CSV parsing
+- ExcelJS or an equivalent library for Excel import/export
+- date-fns for date calculations
+- Zod for data validation
+
+AI:
+- OpenAI API through a secure server-side route
+- Structured JSON output
+- Environment variable for API key
+
+Reports:
+- jsPDF
+- jsPDF AutoTable
+- ExcelJS
+
+Persistence:
+- Browser localStorage for the hackathon MVP
+- Keep data-access logic separated so a real database can be added later
+
+Deployment:
+- Make the application compatible with Vercel.
+
+Do not introduce unnecessary infrastructure.
+
+Do not require Firebase, MongoDB, PostgreSQL, or a paid external service for the basic demo to work.
+
+---
+
+# 5. VISUAL DESIGN — EXTREMELY IMPORTANT
+
+The application must look premium, modern, polished, and professional.
+
+Do not create a generic admin dashboard with plain white cards, basic tables, and default chart styles.
+
+I want an impressive SaaS interface.
+
+## Overall visual direction
+
+Use a premium enterprise analytics aesthetic.
+
+Suggested visual palette:
+
+- Main background: very light cool grey or off-white
+- Primary colour: deep navy / midnight blue
+- Accent colour: vibrant indigo or electric blue
+- Positive: refined green
+- Negative: refined red or coral
+- Warning: warm amber
+- Neutral: muted slate
+- Cards: clean white with subtle borders
+- Charts: tasteful, coordinated colours
+
+Use colour consistently. Do not use too many unrelated gradients.
+
+## Typography
+
+Use a modern, readable font such as Inter or Geist.
+
+Typography hierarchy:
+
+- Large, bold page headings
+- Clear section headings
+- Compact but readable metric labels
+- Muted helper text
+- Large numerical KPI values
+
+## Layout
+
+Create a responsive application shell.
+
+Desktop:
+
+- Fixed or sticky left sidebar
+- Main content area
+- Top header with page title and controls
+- Consistent content width and spacing
+- Optional contextual right-side panels where useful
+
+Sidebar navigation:
+
+1. Overview
+2. Reviews
+3. Sentiment Intelligence
+4. Issue Explorer
+5. Action Center
+6. Reports
+7. Settings
+
+Include:
+
+- PulseBoard AI logo/wordmark
+- Small product descriptor
+- Active navigation state
+- User/business profile area
+- Responsive mobile navigation
+
+## Animations and motion
+
+Use Framer Motion thoughtfully.
+
+Include:
+
+- Smooth page transitions
+- Sidebar transitions
+- Subtle card entrance animations
+- Animated KPI number changes
+- Chart entrance animations
+- Hover elevation on interactive cards
+- Smooth modal and drawer transitions
+- Loading skeletons
+- Toast notifications
+- Animated progress indicators
+- Micro-interactions on buttons
+
+Animations must feel premium and smooth.
+
+Avoid excessive bouncing, unnecessary movement, or distracting animations.
+
+Respect reduced-motion preferences.
+
+## Visual quality standards
+
+- Consistent spacing
+- Consistent border radius
+- High-quality icons
+- Good empty states
+- Good loading states
+- Good error states
+- Responsive layout
+- No overlapping components
+- No horizontal overflow
+- No random colours
+- No unfinished-looking pages
+- No browser-default form controls where custom styling is appropriate
+
+The final product should look like a serious SaaS startup product.
+
+---
+
+# 6. APPLICATION STRUCTURE AND SCREENS
+
+Build all of the following screens.
+
+## SCREEN 1: OVERVIEW DASHBOARD
+
+This is the main landing screen after opening the application.
+
+Header:
+
+Title: "Customer Intelligence"
+
+Subtitle: "Your customer feedback, transformed into business decisions."
+
+Top-right controls:
+
+- Date range selector
+- Dataset selector or business selector if multiple datasets are supported
+- Export report button
+- Refresh/recalculate button if needed
+
+### KPI cards
+
+Create these KPI cards:
+
+1. Total Reviews
+2. Positive Sentiment
+3. Negative Sentiment
+4. Average Rating
+5. Complaint Rate
+6. Business Health Score
+
+Each card must include:
+
+- Main number
+- Descriptive label
+- Comparison against previous period where possible
+- Small trend indicator
+- Appropriate icon
+
+Use realistic calculations.
+
+### Business Health Score
+
+Create a clearly explained, project-defined metric:
+
+BHS = ((Positive Reviews + 0.5 × Neutral Reviews) / Total Reviews) × 100
+
+Display the score from 0–100.
+
+Explain in a tooltip that this is PulseBoard's custom indicator, not an industry-standard metric.
+
+If there are no reviews, display "Not enough data."
+
+### Dashboard charts
+
+Create the following:
+
+1. Sentiment distribution:
+   - Positive
+   - Neutral
+   - Negative
+
+2. Sentiment trend:
+   - Positive trend
+   - Neutral trend
+   - Negative trend
+   - Based on review date
+
+3. Rating distribution:
+   - 1 star to 5 stars
+
+4. Top complaint categories:
+   - Delivery
+   - Packaging
+   - Product quality
+   - Customer service
+   - Pricing
+   - Other relevant categories
+
+5. Aspect performance:
+   - Category-wise positive and negative sentiment
+
+Charts must update when the date filter changes.
+
+### Intelligence section
+
+Show:
+
+- Top emerging issue
+- Most improved category
+- Highest-priority problem
+- AI-generated business recommendation
+
+Each insight must be clickable and open the relevant details.
+
+### Recent reviews
+
+Show a small table containing:
+
+- Review text
+- Rating
+- Sentiment
+- Main aspect
+- Date
+- Source
+
+Provide a link to view all reviews.
+
+---
+
+## SCREEN 2: REVIEW MANAGEMENT
+
+This screen manages all imported customer reviews.
+
+### Data upload
+
+Allow:
+
+- CSV upload
+- XLSX upload
+- Manual review entry
+- Paste multiple reviews
+- Load sample dataset
+
+Support a practical range of column names and map common alternatives.
+
+Expected fields:
+
+- Review ID
+- Review Text
+- Rating
+- Review Date
+- Source
+- Product or Service
+- Location
+- Customer identifier, optional
+
+Do not require every optional column.
+
+### Upload experience
+
+Create a polished upload area with:
+
+- Drag-and-drop
+- Browse files
+- Supported format labels
+- Upload progress
+- Validation status
+- Number of accepted rows
+- Number of rejected rows
+- Clear validation errors
+- Column mapping when necessary
+
+Allow users to preview the first few rows before importing.
+
+Handle:
+
+- Missing review text
+- Invalid dates
+- Invalid ratings
+- Duplicate reviews
+- Empty files
+- Incorrect file types
+- Large files reasonably
+
+Never silently discard data.
+
+### Reviews table
+
+Columns:
+
+- Review
+- Rating
+- Sentiment
+- Main aspect
+- Source
+- Product
+- Date
+- Priority
+
+Features:
+
+- Search
+- Sort
+- Pagination
+- Sentiment filter
+- Rating filter
+- Date filter
+- Source filter
+- Aspect filter
+- Reset filters
+
+Clicking a review should open a detail drawer or modal.
+
+### Review details
+
+Display:
+
+- Original review
+- Rating
+- Date
+- Source
+- Overall sentiment
+- Aspect-level sentiment
+- Detected complaint
+- Urgency
+- AI explanation
+- Suggested response
+- Copy response button
+
+Make the evidence easy to inspect.
+
+---
+
+## SCREEN 3: SENTIMENT INTELLIGENCE
+
+This is one of the main differentiating screens.
+
+Title:
+"Sentiment Intelligence"
+
+Subtitle:
+"Understand the emotions and experiences behind every customer review."
+
+Display:
+
+1. Overall sentiment breakdown
+2. Aspect-level sentiment analysis
+3. Positive drivers
+4. Negative drivers
+5. Sentiment over time
+6. Most frequently mentioned aspects
+7. Most problematic aspects
+
+For each aspect, display:
+
+- Number of mentions
+- Positive mentions
+- Negative mentions
+- Neutral mentions
+- Positive percentage
+- Negative percentage
+- Change compared with previous period
+
+Create a visual aspect comparison chart.
+
+Example:
+
+| Aspect | Positive | Negative | Status |
+| Food quality | 88% | 12% | Strong |
+| Delivery | 31% | 69% | Needs attention |
+| Packaging | 42% | 58% | At risk |
+| Customer service | 76% | 24% | Good |
+
+These values must be calculated from actual data, not hardcoded.
+
+Allow users to click an aspect to inspect its supporting reviews.
+
+---
+
+## SCREEN 4: ISSUE EXPLORER
+
+Title:
+"Discover What's Going Wrong"
+
+This page should identify recurring customer problems.
+
+Create issue cards with:
+
+- Issue name
+- Number of related reviews
+- Negative sentiment percentage
+- Priority score
+- Trend direction
+- First detected date
+- Latest detected date
+- Supporting review count
+
+Examples:
+
+- Late delivery
+- Damaged packaging
+- Poor customer support
+- Product quality inconsistency
+- High pricing complaints
+
+These should be extracted from actual review data.
+
+### Issue detail view
+
+Display:
+
+1. Issue summary
+2. Why the issue was detected
+3. Evidence from actual reviews
+4. Historical trend
+5. Priority calculation
+6. Potential business impact
+7. Recommended action
+
+Create an issue trend indicator:
+
+- Emerging
+- Worsening
+- Improving
+- Stable
+- Insufficient data
+
+Use the previous-period comparison where possible.
+
+Do not label something as worsening merely because it has a high number of complaints. A worsening label must be supported by a valid comparison.
+
+---
+
+## SCREEN 5: ACTION CENTER
+
+Title:
+"Turn Insights Into Action"
+
+This page transforms analysis into a practical task list.
+
+Create an AI recommendation panel.
+
+Every recommendation should include:
+
+- Problem
+- Supporting evidence
+- Priority
+- Recommended action
+- Expected benefit
+- Status
+
+Statuses:
+
+- To do
+- In progress
+- Completed
+
+Allow users to:
+
+- Change status
+- View evidence
+- Add notes
+- Filter by priority
+- Filter by status
+
+Persist task status and notes in localStorage.
+
+### Recommendation examples
+
+1. Investigate evening delivery delays.
+2. Review packaging quality checks.
+3. Improve response time for customer complaints.
+4. Examine recurring product quality issues.
+
+Recommendations must be generated from actual data.
+
+Do not invent findings when evidence is insufficient.
+
+---
+
+## SCREEN 6: REPORT CENTER
+
+Title:
+"Business Intelligence Reports"
+
+Allow users to generate and download:
+
+1. PDF report
+2. Excel report
+
+Both exports must use the currently selected date range and the actual dataset.
+
+### PDF report
+
+Create a polished professional report, approximately 6–8 pages depending on available content.
+
+Suggested sections:
+
+1. Cover page
+   - PulseBoard AI branding
+   - Business/dataset name
+   - Report date
+   - Selected analysis period
+
+2. Executive summary
+   - Total reviews
+   - Business Health Score
+   - Average rating
+   - Sentiment distribution
+
+3. Sentiment analysis
+   - Sentiment breakdown
+   - Sentiment trend
+   - Important changes
+
+4. Customer experience analysis
+   - Aspect-level performance
+   - Strongest aspects
+   - Weakest aspects
+
+5. Complaint analysis
+   - Top complaints
+   - Issue priorities
+   - Supporting review counts
+
+6. AI insights
+   - Root cause observations
+   - Emerging issues
+   - Evidence-linked findings
+
+7. Recommended action plan
+   - Priorities
+   - Recommended actions
+   - Current action status
+
+8. Appendix
+   - Methodology
+   - Metric definitions
+   - Analysis period
+   - Data limitations
+
+PDF requirements:
+
+- Professional typography
+- Consistent spacing
+- Page numbers
+- Clear headings
+- Charts or chart summaries where practical
+- Tables that fit the page
+- No clipped text
+- No empty decorative pages
+
+### Excel report
+
+Create a workbook with these sheets:
+
+1. Executive Summary
+2. Review Data
+3. Sentiment Analysis
+4. Complaint Analysis
+5. Period Comparison
+6. Action Plan
+
+Use:
+
+- Bold headers
+- Readable column widths
+- Filters
+- Appropriate number formats
+- Clear sheet names
+
+The exported workbook must contain real calculated values.
+
+---
+
+## SCREEN 7: SETTINGS
+
+Create a simple settings screen.
+
+Include:
+
+- Business name
+- Dataset information
+- AI configuration status
+- Default date range
+- Analysis preferences
+- Clear imported data
+- Load sample dataset
+
+Do not expose the API key in the browser.
+
+Never store API secrets in localStorage.
+
+---
+
+# 7. AI ENGINE — IMPORTANT IMPLEMENTATION REQUIREMENTS
+
+Use the OpenAI API through a server-side Next.js route.
+
+Suggested endpoint:
+
+POST /api/analyze-reviews
+
+Use environment variable:
+
+OPENAI_API_KEY=
+
+Provide an example environment file containing the variable name but no real secret.
+
+The browser must never receive the secret key.
+
+### AI analysis output
+
+Use structured JSON output.
+
+Each review should produce a predictable structure similar to:
+
+{
+  "overallSentiment": "positive | neutral | negative",
+  "sentimentReason": "Short explanation",
+  "aspects": [
+    {
+      "name": "Delivery",
+      "sentiment": "negative",
+      "evidence": "The delivery was extremely late",
+      "confidence": 0.94
+    }
+  ],
+  "mainIssue": "Late delivery",
+  "urgency": "low | medium | high | critical",
+  "suggestedResponse": "Professional response to the customer"
+}
+
+Validate all AI responses with Zod.
+
+Handle malformed output and API failures gracefully.
+
+### Batch processing
+
+Do not make one API call per review if a batch approach is practical.
+
+Implement batch processing with:
+
+- Controlled batch sizes
+- Progress indicators
+- Error handling
+- Retry strategy for transient failures
+- Rate-limit awareness
+- Ability to continue processing remaining batches
+
+### Cache AI analysis
+
+This is very important.
+
+Analyse each review once and cache the result.
+
+When users change date filters, do not repeat AI analysis for reviews that have already been analysed.
+
+When new reviews are imported, analyse only the new reviews.
+
+If the API is unavailable or the user has not configured an API key, provide a transparent demo mode.
+
+Demo mode should use deterministic local analysis rules and clearly identify itself as demo analysis.
+
+Never label rule-based demo results as genuine OpenAI-generated results.
+
+### AI root cause insights
+
+Use the structured review analysis to generate higher-level business observations.
+
+For example:
+
+- Delivery is the most frequently mentioned negative aspect.
+- Packaging complaints have increased compared with the previous period.
+- Customers frequently praise food quality.
+- Customer support appears to be a weaker experience than product quality.
+
+Insights must be supported by actual calculated data.
+
+If an AI-generated observation includes statistics, those statistics must be calculated by the application and passed to the AI, not invented by the model.
+
+### AI cost and performance
+
+- Do not analyse the same review repeatedly.
+- Do not call the API when users only change dashboard filters.
+- Keep batch sizes manageable.
+- Show analysis progress.
+- Show which reviews are pending, completed, or failed.
+- Make the system usable with a sample dataset even without an API key.
+
+---
+
+# 8. DATA MODEL
+
+Create a clean, maintainable TypeScript data model.
+
+A review should support fields similar to:
+
+Review:
+- id
+- reviewText
+- rating
+- reviewDate
+- source
+- product
+- location
+- sentiment
+- sentimentReason
+- aspects
+- mainIssue
+- urgency
+- suggestedResponse
+- analysisStatus
+- createdAt
+
+Aspect:
+- name
+- sentiment
+- evidence
+- confidence
+
+Issue:
+- id
+- name
+- reviewCount
+- negativeCount
+- negativePercentage
+- priorityScore
+- trend
+- supportingReviewIds
+- recommendedAction
+
+Recommendation:
+- id
+- title
+- description
+- priority
+- evidenceReviewIds
+- expectedBenefit
+- status
+- notes
+- createdAt
+
+Use TypeScript interfaces and reusable utility functions.
+
+Avoid putting all business logic inside React components.
+
+---
+
+# 9. SAMPLE DATASET — MAKE THE DEMO IMPRESSIVE
+
+The product must work immediately after starting it.
+
+Include a realistic sample dataset of at least 300–500 synthetic reviews.
+
+Focus the initial sample on a fictional food delivery business.
+
+Suggested business name:
+
+"UrbanBite"
+
+Include varied reviews:
+
+Positive:
+- Great food quality.
+- Fast delivery.
+- Fresh ingredients.
+- Friendly delivery partner.
+- Good packaging.
+
+Negative:
+- Food arrived cold.
+- Delivery was late.
+- Packaging was damaged.
+- Customer support did not respond.
+- Prices are too high.
+- Missing items in the order.
+
+Mixed:
+- Great food but slow delivery.
+- Good quality but poor packaging.
+- Excellent service but expensive.
+- Fast delivery but incorrect order.
+
+Include:
+
+- Different ratings
+- Different review dates
+- Multiple sources
+- Multiple products
+- Different locations
+- Different customer experiences
+
+Create realistic date distributions so the dashboard can demonstrate meaningful trends.
+
+IMPORTANT:
+
+Do not generate a dataset where every metric is identical or random without logic.
+
+Create deliberate but realistic patterns, for example:
+
+- Food quality is generally positive.
+- Delivery is a recurring complaint.
+- Packaging complaints rise during a recent period.
+- Customer service has mixed feedback.
+
+This allows the demo to demonstrate the platform's ability to identify a business problem.
+
+The dataset must be clearly marked as synthetic sample data.
+
+---
+
+# 10. CORE ANALYTICS LOGIC
+
+Implement all analytics using reusable functions.
+
+Examples:
+
+- calculateSentimentDistribution()
+- calculateAverageRating()
+- calculateBusinessHealthScore()
+- calculateComplaintRate()
+- calculateAspectSentiment()
+- calculateSentimentTrend()
+- calculateIssuePriority()
+- comparePeriods()
+- detectEmergingIssues()
+- generateExecutiveSummary()
+
+### Sentiment distribution
+
+Calculate positive, neutral, and negative review counts and percentages from the currently filtered reviews.
+
+### Average rating
+
+Calculate the average of valid ratings.
+
+### Complaint rate
+
+Define complaint rate transparently as the percentage of reviews classified as negative.
+
+### Aspect sentiment
+
+Calculate sentiment for each aspect using actual aspect mentions.
+
+### Period comparison
+
+Compare the selected period with the previous equivalent period.
+
+For custom date ranges, compare against the immediately preceding period of equal duration.
+
+Handle insufficient data.
+
+### Priority score
+
+Use a transparent project-defined scoring model.
+
+Possible factors:
+
+- Negative complaint frequency
+- Negative sentiment percentage
+- Recent increase
+- Severity
+- Recurrence
+
+Keep the formula understandable and explain the factors in the UI.
+
+### Trend detection
+
+Use time-based aggregation and previous-period comparisons.
+
+Do not infer trends from insufficient data.
+
+### Filtering
+
+All analytics must use the same filtered review collection.
+
+Avoid inconsistencies where a KPI uses one dataset and a chart uses another.
+
+---
+
+# 11. FUNCTIONAL REQUIREMENTS
+
+Every visible control must work.
+
+Examples:
+
+- Sidebar navigation must navigate.
+- Date filters must update analytics.
+- Upload must process files.
+- Search must search reviews.
+- Sorting must sort.
+- Filters must filter.
+- Pagination must work.
+- Review details must open.
+- AI analysis must run when configured.
+- Demo analysis must work without an API key.
+- Copy buttons must copy.
+- PDF export must generate a valid PDF.
+- Excel export must generate a valid workbook.
+- Action statuses must persist.
+- Reset filters must work.
+- Sample data loading must work.
+- Clear-data functionality must work with confirmation.
+
+Do not create decorative buttons that do nothing.
+
+Do not leave placeholder links.
+
+Do not use fake charts with hardcoded values.
+
+Do not show fake success messages.
+
+If a feature is not implemented, do not make it appear functional.
+
+---
+
+# 12. UX DETAILS
+
+Use thoughtful user feedback throughout.
+
+Examples:
+
+Upload:
+- "Preparing file..."
+- "Validating rows..."
+- "Import completed"
+- "12 rows need attention"
+
+AI analysis:
+- "Analysing customer feedback..."
+- "Processing batch 2 of 5"
+- "Analysis completed"
+- "Some reviews could not be analysed"
+
+Empty states:
+- No reviews found.
+- No negative issues detected.
+- No data available for this date range.
+- No reports generated yet.
+
+Error states:
+- Invalid file format.
+- API key not configured.
+- AI service unavailable.
+- Unable to generate report.
+
+Use toast notifications for successful actions.
+
+Use confirmation dialogs for destructive actions.
+
+Use skeleton loaders for asynchronous sections.
+
+---
+
+# 13. RESPONSIVENESS AND ACCESSIBILITY
+
+The app must work on:
+
+- Desktop
+- Laptop
+- Tablet
+- Mobile
+
+On mobile:
+
+- Sidebar becomes a drawer or compact navigation.
+- KPI cards adapt to available width.
+- Charts remain readable.
+- Tables become scrollable or switch to appropriate compact layouts.
+- Dialogs fit the viewport.
+
+Accessibility:
+
+- Semantic HTML
+- Proper labels
+- Keyboard navigation
+- Visible focus states
+- Sufficient contrast
+- Accessible chart descriptions where practical
+- Reduced-motion support
+
+---
+
+# 14. SUGGESTED PROJECT STRUCTURE
+
+Use a maintainable structure similar to:
+
+src/
+  app/
+    page.tsx
+    layout.tsx
+    globals.css
+    dashboard/
+      page.tsx
+    reviews/
+      page.tsx
+    intelligence/
+      page.tsx
+    issues/
+      page.tsx
+    actions/
+      page.tsx
+    reports/
+      page.tsx
+    settings/
+      page.tsx
+    api/
+      analyze-reviews/
+        route.ts
+      generate-insights/
+        route.ts
+
+  components/
+    layout/
+      Sidebar.tsx
+      Header.tsx
+      AppShell.tsx
+    dashboard/
+      KPICard.tsx
+      SentimentChart.tsx
+      TrendChart.tsx
+      AspectChart.tsx
+      RecentReviews.tsx
+      IntelligencePanel.tsx
+    reviews/
+      UploadZone.tsx
+      ReviewTable.tsx
+      ReviewDetailDrawer.tsx
+      ColumnMapper.tsx
+    intelligence/
+      AspectBreakdown.tsx
+      InsightCard.tsx
+    issues/
+      IssueCard.tsx
+      IssueDetail.tsx
+    actions/
+      RecommendationCard.tsx
+    reports/
+      ReportGenerator.tsx
+    shared/
+      EmptyState.tsx
+      LoadingSkeleton.tsx
+      DateRangeSelector.tsx
+      ConfirmDialog.tsx
+
+  lib/
+    analytics/
+      sentiment.ts
+      aspects.ts
+      trends.ts
+      issues.ts
+      priorities.ts
+      comparisons.ts
+    ai/
+      openai.ts
+      prompts.ts
+      schemas.ts
+      demo-analysis.ts
+    data/
+      sample-reviews.ts
+      import-csv.ts
+      import-excel.ts
+      storage.ts
+    reports/
+      generate-pdf.ts
+      generate-excel.ts
+    utils/
+      dates.ts
+      formatting.ts
+      validation.ts
+
+  types/
+    review.ts
+    analytics.ts
+    issue.ts
+    recommendation.ts
+
+public/
+  logo/
+  sample-data/
+
+This is a suggested architecture. Adjust it if the existing project has a better structure.
+
+Do not create unnecessary files or duplicate logic.
+
+---
+
+# 15. IMPLEMENTATION PLAN
+
+Work in the following order.
+
+## Phase 1: Inspect and prepare
+
+1. Inspect the current project directory.
+2. Check the existing package.json.
+3. Identify the framework and current setup.
+4. Preserve useful existing configuration.
+5. Install only required dependencies.
+6. Create the application structure.
+
+Do not overwrite useful project work unnecessarily.
+
+## Phase 2: Build the visual foundation
+
+1. Create the design system.
+2. Create the application shell.
+3. Create sidebar navigation.
+4. Create the header.
+5. Establish typography, colours, spacing, and reusable components.
+6. Implement responsive layouts.
+
+The initial screen must already look polished.
+
+## Phase 3: Build the data layer
+
+1. Create TypeScript interfaces.
+2. Create sample review data.
+3. Create local persistence.
+4. Create CSV import.
+5. Create Excel import.
+6. Add validation and duplicate handling.
+7. Create shared date filtering.
+
+## Phase 4: Build analytics
+
+1. Sentiment distribution.
+2. Average rating.
+3. Business Health Score.
+4. Complaint rate.
+5. Aspect-level sentiment.
+6. Sentiment trends.
+7. Period comparison.
+8. Issue prioritisation.
+9. Emerging issue detection.
+
+All metrics must be calculated from the dataset.
+
+## Phase 5: Build AI functionality
+
+1. Create the server-side API route.
+2. Add structured output.
+3. Add Zod validation.
+4. Add batch processing.
+5. Add caching.
+6. Add demo mode.
+7. Add root-cause insight generation.
+8. Add review-response assistant.
+
+## Phase 6: Build all screens
+
+1. Overview
+2. Reviews
+3. Sentiment Intelligence
+4. Issue Explorer
+5. Action Center
+6. Reports
+7. Settings
+
+## Phase 7: Build exports
+
+1. PDF generation.
+2. Excel workbook generation.
+3. Ensure selected filters are respected.
+4. Validate downloaded files.
+
+## Phase 8: Final polish and testing
+
+1. Test every navigation item.
+2. Test CSV upload.
+3. Test Excel upload.
+4. Test manual review entry.
+5. Test date filters.
+6. Test sentiment filters.
+7. Test review search.
+8. Test aspect calculations.
+9. Test AI demo mode.
+10. Test AI mode when an API key is available.
+11. Test PDF export.
+12. Test Excel export.
+13. Test responsive layouts.
+14. Fix console errors.
+15. Fix TypeScript errors.
+16. Run lint and build checks.
+
+---
+
+# 16. PRIORITY RULES — DO NOT WASTE TIME
+
+This is a hackathon project with a limited development window.
+
+Prioritise the following:
+
+**P0 — Must work perfectly**
+- Premium frontend
+- Dashboard
+- Sample dataset
+- CSV upload
+- Excel upload
+- Review table
+- Date filtering
+- Sentiment analytics
+- Aspect-level sentiment
+- Issue prioritisation
+- Evidence-linked insights
+- PDF export
+- Excel export
+
+**P1 — Important**
+- AI API integration
+- Batch analysis
+- AI response assistant
+- Action Center
+- Previous-period comparison
+- Local persistence
+
+**P2 — Optional enhancements**
+- Advanced animations
+- More complex filtering
+- Additional visualisations
+- Extra customisation
+
+Do not sacrifice core functionality to add unnecessary features.
+
+Do not spend the entire implementation time building a landing page.
+
+Do not add authentication, payment gateways, external integrations, or a database unless genuinely necessary.
+
+---
+
+# 17. WHAT THE JUDGES SHOULD SEE
+
+The final demonstration should tell a compelling story.
+
+Use this demo scenario:
+
+A business owner uploads 500 customer reviews for UrbanBite.
+
+PulseBoard AI immediately produces:
+
+1. A customer sentiment overview.
+2. An overall Business Health Score.
+3. A breakdown of customer satisfaction.
+4. Aspect-level insights showing that food quality is strong but delivery is weak.
+5. An early warning that packaging complaints have increased.
+6. A prioritised issue list.
+7. Actual customer reviews supporting each finding.
+8. AI recommendations explaining what the business should do.
+9. A professional PDF report.
+10. An Excel workbook for further analysis.
+
+The most important demonstration moment:
+
+**Show how one customer review can reveal multiple different experiences, and how hundreds of reviews can reveal a recurring business problem that the owner might otherwise miss.**
+
+Then show how PulseBoard converts that discovery into a prioritised action plan.
+
+This is the core product story.
+
+---
+
+# 18. PRODUCT QUALITY AND ENGINEERING RULES
+
+Follow these rules throughout development:
+
+1. Use clean, maintainable TypeScript.
+2. Avoid `any` wherever possible.
+3. Use reusable components.
+4. Separate analytics logic from UI.
+5. Keep AI logic separate from analytics calculations.
+6. Keep API secrets server-side.
+7. Validate uploaded data.
+8. Handle empty datasets.
+9. Handle missing fields.
+10. Handle invalid dates.
+11. Handle API failures.
+12. Avoid unnecessary dependencies.
+13. Avoid hardcoded dashboard metrics.
+14. Do not fabricate AI findings.
+15. Do not claim external review integrations exist.
+16. Clearly label synthetic sample data.
+17. Ensure exports use actual data.
+18. Keep the interface consistent.
+19. Ensure all visible buttons work.
+20. Do not leave unfinished placeholder screens.
+
+Use sensible defaults and make the application usable without configuration.
+
+If OpenAI API access is not configured, the application must still be fully demonstrable using its clearly labelled demo analysis engine.
+
+---
+
+# 19. FINAL ACCEPTANCE CRITERIA
+
+Consider the task complete only when all the following are true:
+
+- The application starts successfully.
+- The dashboard looks premium and polished.
+- Navigation works.
+- The sample dataset loads.
+- CSV upload works.
+- Excel upload works.
+- Imported data appears in the review table.
+- Review search and filters work.
+- Date filtering updates all relevant analytics.
+- Sentiment analysis works in demo mode.
+- Aspect-level analysis is visible.
+- Issue prioritisation is explainable.
+- Emerging issues are based on actual comparisons.
+- Insights link to supporting reviews.
+- Recommendations can be managed.
+- AI response generation works when configured.
+- PDF reports download successfully.
+- Excel reports download successfully.
+- Data persists appropriately.
+- Responsive layouts work.
+- There are no major TypeScript errors.
+- There are no major runtime errors.
+- The production build succeeds.
+
+---
+
+# 20. YOUR FINAL INSTRUCTIONS
+
+Now start building PulseBoard AI.
+
+First inspect the project. Then implement the complete application.
+
+Do not just explain how to build it.
+
+Do not return only a plan.
+
+Do not stop after creating the homepage.
+
+Do not leave the other navigation pages empty.
+
+Do not create a static mockup.
+
+Actually write and modify the code, install the necessary dependencies, implement the features, and test the result.
+
+Make intelligent decisions independently.
+
+If a feature is too large for the available implementation time, build a smaller but genuinely working version rather than a fake version.
+
+Keep the UI visually consistent across every page.
+
+The finished product should look like a premium SaaS product and should be impressive during a live hackathon demonstration.
+
+At the end, provide me with:
+
+1. A summary of what you built.
+2. The final project folder structure.
+3. The commands to run the application.
+4. Any required environment variables.
+5. Which features work in demo mode.
+6. Which features require an OpenAI API key.
+7. Any known limitations.
+8. A checklist of tests you performed.
+
+**Your objective: Build a complete, beautiful, intelligent, functional PulseBoard AI — not just a dashboard, but a product that gives businesses a genuine reason to use it.**

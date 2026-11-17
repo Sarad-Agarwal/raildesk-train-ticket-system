@@ -1,0 +1,524 @@
+PULSEBOARD AI Customer Feedback & Sentiment Intelligence Platform OpenAI
+Hackathon – Problem Statement 6B
+
+============================================================ 1. PROJECT
+OVERVIEW ============================================================
+
+PulseBoard AI is a browser-based Customer Feedback & Sentiment
+Intelligence Platform.
+
+Its purpose is to help business owners, brand managers and
+administrators understand customer opinions over time, identify
+recurring problems, monitor brand perception and make better business
+decisions.
+
+The central idea: Do not make businesses read hundreds of individual
+reviews. Let AI analyse them, identify what changed, explain why
+customers are unhappy and generate professional management reports.
+
+The project extends the official 6B problem statement while retaining
+its core requirements: - Browser-based interface. - Multi-line customer
+feedback input. - AI classification into positive, neutral and negative
+sentiment. - Brand health score. - Identification of recurring complaint
+keywords. - Export of classified feedback as a spreadsheet.
+
+Additional proposed capabilities: - CSV/Excel upload. - Time-based
+sentiment monitoring. - Previous-period comparison. - Aspect-level
+sentiment analysis. - AI-generated business observations and
+recommendations. - Professional PDF reports. - Multi-sheet Excel
+reports.
+
+Important limitation: The MVP will analyse feedback supplied by the user
+or included in its sample dataset. It will not claim to automatically
+collect reviews from Google, Instagram or other platforms unless
+authorised integrations are actually implemented.
+
+============================================================ 2. TARGET
+USERS ============================================================
+
+1.  Business owner Wants to know whether customers are satisfied and
+    what needs improvement.
+
+2.  Marketing manager Wants to understand brand perception and recurring
+    complaints.
+
+3.  Administrator / management Wants periodic performance reports and
+    evidence-based recommendations.
+
+For the hackathon MVP, one admin-style dashboard is sufficient.
+Complicated authentication and role management are not required
+initially.
+
+============================================================ 3. MODULE 1
+– REVIEW DATA MANAGEMENT
+============================================================
+
+Purpose: Provide a simple way for a business to supply customer
+feedback.
+
+Input methods: - Upload a CSV file. - Upload an Excel file, if
+implemented within the available time. - Paste multiple reviews. - Load
+an included sample dataset. - Future possibility: connect authorised
+review platforms through APIs.
+
+Suggested review fields:
+
+-   Review ID
+-   Customer identifier or anonymised customer label
+-   Review text
+-   Rating
+-   Source
+-   Product or service
+-   Location
+-   Review date and time
+
+Example:
+
+Review ID: REV001 Customer: Customer 01 Review text: Delivery was very
+slow. Rating: 2/5 Source: Website Product: Food Delivery Location:
+Kolkata Date/time: 17 November 2026, 10:30 AM
+
+Timestamps are essential for date-range filtering. The application
+should validate uploaded columns and dates before analysis.
+
+============================================================ 4. MODULE 2
+– TIME-BASED SENTIMENT INTELLIGENCE
+============================================================
+
+This is a key product feature.
+
+Suggested reporting filters: - Last 4 hours - Last 12 hours - Last 24
+hours - Last 7 days - Last 15 days - Last 30 days - Last 2 months - Last
+3 months - Last 6 months - Last 1 year - Custom date range
+
+When the reporting period changes, all dashboard components should
+update: - Total reviews - Positive, neutral and negative counts - Brand
+health score - Complaint categories - Sentiment trends - AI-generated
+insights - Exported reports
+
+The application should use the timestamps actually present in the
+dataset. It must not imply that it has live or historical platform
+reviews that were never supplied.
+
+Period-over-period comparison: Compare the selected period with an
+equally sized previous period.
+
+Example: - Previous week positive sentiment: 65% - Current week positive
+sentiment: 72% - Change: +7 percentage points
+
+Clearly distinguish percentage-point changes from percentage growth.
+
+Date-filter definitions: - Last 4 hours: rolling four-hour window. -
+Last 24 hours: rolling 24-hour window. - Last 7 days: rolling seven-day
+window. - Last 30 days: rolling 30-day window. - Last 2 months: subtract
+two calendar months from the current timestamp. - Custom: user-selected
+start and end dates.
+
+Display the actual date range and timezone used. For small sample sizes,
+show a low-data warning.
+
+============================================================ 5. MODULE 3
+– AI SENTIMENT & ASPECT ANALYSIS
+============================================================
+
+The AI should not assign only one sentiment to an entire review. It
+should identify the sentiment of individual aspects.
+
+Example review: “The food was excellent, but the delivery was extremely
+slow and the packaging was damaged.”
+
+Expected analysis: - Food quality: Positive - Delivery: Negative -
+Packaging: Negative
+
+For each review, AI can extract: - Overall sentiment - Aspect or
+category - Aspect-level sentiment - Emotion or dissatisfaction signal -
+Complaint theme - Urgency - Short explanation
+
+Possible feedback types: - Praise - Complaint - Suggestion - Feature
+request - Service issue
+
+Use structured AI output and validate the result before displaying or
+storing it.
+
+Illustrative structured response:
+
+{ “overallSentiment”: “negative”, “aspects”: [ { “category”:
+“food_quality”, “sentiment”: “positive” }, { “category”: “delivery”,
+“sentiment”: “negative” } ], “issue”: “delivery_delay”, “urgency”:
+“high”, “reason”: “Delivery was significantly delayed” }
+
+============================================================ 6. MODULE 4
+– BUSINESS HEALTH & ANALYTICS DASHBOARD
+============================================================
+
+The dashboard should include:
+
+A. Overview cards - Total reviews - Positive reviews - Negative
+reviews - Neutral reviews - Brand health score - Average customer rating
+
+B. Sentiment distribution A donut chart showing positive, neutral and
+negative feedback.
+
+C. Sentiment over time A line chart showing how sentiment changes across
+the selected period.
+
+D. Complaint category analysis A bar chart showing the most frequently
+reported issues.
+
+E. Customer rating analysis Distribution of 1-star, 2-star, 3-star,
+4-star and 5-star ratings.
+
+F. Customer feedback table A searchable and filterable table
+containing: - Original review - Date - Source - Rating - Sentiment -
+Identified aspect or issue
+
+All metrics and charts must use the same filtered dataset.
+
+============================================================ 7. MODULE 5
+– AI ROOT CAUSE OBSERVATIONS & RECOMMENDATIONS
+============================================================
+
+The application should move beyond reporting complaint percentages.
+
+Example:
+
+Observation: Delivery-related complaints account for a large proportion
+of negative reviews.
+
+Evidence: Customers repeatedly mention late deliveries, long waiting
+periods and delayed order arrival.
+
+Possible business impact: Repeated delivery problems may reduce customer
+satisfaction and increase refund requests.
+
+Recommended actions: 1. Investigate delivery performance during peak
+hours. 2. Review delivery partner availability. 3. Monitor average
+delivery times. 4. Check whether particular locations have recurring
+delays.
+
+Important: Distinguish facts observed in the dataset from AI-generated
+hypotheses. Do not claim that a problem caused lost revenue unless the
+dataset contains evidence for that claim.
+
+============================================================ 8. MODULE 6
+– PROFESSIONAL PDF & EXCEL REPORT GENERATOR
+============================================================
+
+The report generator is an important product feature.
+
+The administrator selects a reporting period and exports the same
+filtered analysis shown on the dashboard.
+
+A. PDF report – proposed 6 to 8 pages
+
+Page 1 – Cover - PulseBoard AI branding - Customer Voice & Sentiment
+Report title - Reporting period - Prepared for - Generated date and time
+
+Page 2 – Executive Summary - Total customer reviews - Brand health
+score - Sentiment distribution - Key findings
+
+Page 3 – Sentiment Analysis - Positive, neutral and negative
+distribution - Sentiment trends - Previous-period comparison
+
+Page 4 – Customer Complaint Analysis - Top five complaints - Frequently
+mentioned topics - Negative feedback analysis
+
+Page 5 – Product & Service Performance - Aspect-wise sentiment -
+Product/service strengths - Areas requiring improvement
+
+Page 6 – AI Business Insights - Root cause observations - Emerging
+customer concerns - Important positive feedback
+
+Page 7 – Recommended Actions - High-priority actions - Medium-priority
+actions - Suggested improvements
+
+Page 8 – Appendix - Methodology - Review counts - Data sources -
+Reporting limitations
+
+PDF quality requirements: - Professional typography - Consistent
+branding - Page numbers - Header and footer - Charts and KPI cards -
+Reporting dates - Well-formatted tables - Generated timestamp
+
+B. Excel report – one workbook with five worksheets
+
+1.  Executive Summary KPIs, sentiment and key findings.
+
+2.  Review Data All classified individual reviews.
+
+3.  Sentiment Analysis Positive, neutral and negative statistics.
+
+4.  Complaint Analysis Complaint categories and counts.
+
+5.  Period Comparison Current versus previous period.
+
+Excel quality requirements: - Formatted headers - Filters - Percentage
+and date formats - Conditional formatting - Charts where practical
+
+C. Export controls - Selected reporting period - Number of reviews
+analysed - Option to include AI recommendations - Export Executive PDF -
+Export Analytics Workbook
+
+============================================================ 9.
+TECHNOLOGY STACK
+============================================================
+
+Recommended stack for a fast, reliable hackathon prototype:
+
+Frontend: - Next.js - React - TypeScript - Tailwind CSS - shadcn/ui
+
+AI: - OpenAI API - Structured Outputs for predictable JSON responses
+
+Analytics and charts: - Recharts - Custom JavaScript calculations
+
+Data processing: - PapaParse for CSV parsing - date-fns for date
+calculations - Zod for data and AI-response validation
+
+PDF: - jsPDF - jsPDF-AutoTable
+
+Excel: - ExcelJS
+
+Icons: - Lucide React
+
+Deployment: - Vercel
+
+Storage for MVP: - Browser memory or local storage with preloaded sample
+data. - A database is not required for the initial prototype. - A later
+production version could use Supabase/PostgreSQL for persistent
+multi-user data.
+
+Useful documentation: - OpenAI Structured Outputs:
+https://developers.openai.com/api/docs/guides/structured-outputs -
+Next.js App Router: https://nextjs.org/docs/app - Recharts:
+https://recharts.org/en-US/ - PapaParse: https://www.papaparse.com/ -
+jsPDF: https://github.com/parallax/jsPDF - jsPDF AutoTable:
+https://github.com/simonbengtsson/jsPDF-AutoTable - ExcelJS:
+https://github.com/exceljs/exceljs
+
+API key security: Keep the OpenAI API key on the server in .env.local.
+Never expose it in browser code. ChatGPT subscription access and OpenAI
+API billing are separate. An API key and available API credits or
+billing are needed for live analysis.
+
+============================================================ 10.
+APPLICATION ARCHITECTURE
+============================================================
+
+Frontend: PulseBoard AI dashboard - Dashboard - Reviews - Filters -
+Reports
+
+Next.js API layer: - Upload validation - Analysis requests - Export data
+preparation
+
+OpenAI API: - Sentiment analysis - Aspect extraction - Complaint
+themes - Business observations and recommendations
+
+Data engine: - Review records - Timestamps - Analysis results - KPI
+calculations - Date filtering
+
+Report generators: - PDF generator - Excel generator
+
+Data flow: 1. Administrator uploads a CSV. 2. Application validates
+columns and timestamps. 3. Data engine prepares the reviews. 4. OpenAI
+analyses each review. 5. Structured analysis results are associated with
+original review IDs. 6. Results are cached or retained for reuse. 7.
+User selects a date range. 8. Data engine filters results and calculates
+KPIs. 9. Dashboard updates. 10. PDF and Excel generators use the same
+filtered dataset.
+
+Important architectural decision: AI analysis and date filtering must be
+separate. Do not call the AI API again every time the user changes from
+Last 7 Days to Last 30 Days. Analyse each review once, retain its result
+and recalculate dashboard metrics from the retained results. This saves
+API time and cost.
+
+For the hackathon, browser memory or local storage can be used. A
+production multi-user version should use persistent database storage.
+
+============================================================ 11.
+ANALYTICAL FORMULAS
+============================================================
+
+A. Sentiment distribution
+
+Positive % = (Positive Reviews / Total Reviews) x 100
+
+Neutral % = (Neutral Reviews / Total Reviews) x 100
+
+Negative % = (Negative Reviews / Total Reviews) x 100
+
+B. Brand Health Score
+
+Proposed formula:
+
+BHS = [Positive Reviews + 0.5 x Neutral Reviews] / Total Reviews x 100
+
+This is a project-defined metric, not an official industry-standard
+score. Explain its formula in the application/report.
+
+C. Average rating
+
+Average Rating = Sum of Ratings / Number of Rated Reviews
+
+D. Complaint frequency
+
+Complaint Rate = Reviews mentioning an issue / Total Reviews x 100
+
+E. Period comparison
+
+Change = Current Period Value - Previous Period Value
+
+Example: Previous week positive sentiment: 65% Current week positive
+sentiment: 72% Improvement: 7 percentage points.
+
+Handle empty datasets and zero denominators safely.
+
+============================================================ 12.
+SUGGESTED PROJECT FOLDER STRUCTURE
+============================================================
+
+pulseboard-ai/ | |– app/ | |– page.tsx | |– dashboard/ | | |– page.tsx |
+|– reviews/ | | |– page.tsx | |– reports/ | | |– page.tsx | |– api/ | |–
+analyze/ | | |– route.ts | |– insights/ | |– route.ts | |– components/ |
+|– dashboard/ | | |– OverviewCards.tsx | | |– SentimentChart.tsx | | |–
+TrendChart.tsx | | |– ComplaintChart.tsx | |– reviews/ | | |–
+ReviewUploader.tsx | | |– ReviewTable.tsx | |– reports/ | | |–
+ExportPDF.tsx | | |– ExportExcel.tsx | |– filters/ | | |–
+DateRangeFilter.tsx | |– layout/ | |– Sidebar.tsx | |– Header.tsx | |–
+lib/ | |– openai.ts | |– sentiment.ts | |– analytics.ts | |–
+date-filters.ts | |– pdf-generator.ts | |– excel-generator.ts | |–
+validation.ts | |– data/ | |– sample-reviews.csv | |– types/ | |–
+index.ts | |– public/ |– .env.local |– package.json
+
+This is a suggested structure. Codex can implement it incrementally and
+adjust it where appropriate.
+
+============================================================ 13. MVP
+SCOPE – WHAT MUST BE COMPLETED
+============================================================
+
+Essential: - Professional dashboard - CSV upload - Manual review input -
+Sample review dataset - AI sentiment classification - Aspect-level
+sentiment - Date filters - Previous-period comparison - Brand health
+score - Complaint keyword analysis - Sentiment charts - AI business
+recommendations - PDF report - Excel report
+
+Optional if time permits: - Ask Your Data conversational interface -
+Multiple business profiles - Historical analysis storage - Automated
+scheduled reports - Google Reviews integration - Instagram and other
+social platform integrations
+
+Do not attempt external review integrations during the five-hour build.
+They require separate API access, permissions and implementation work.
+
+============================================================ 14.
+FIVE-HOUR DEVELOPMENT SCHEDULE
+============================================================
+
+Total planned development: 5 hours Remaining buffer: 1 hour out of the
+available 6 hours.
+
+DAY 1 – CORE APPLICATION (2 hours 30 minutes)
+
+1.  30 minutes Next.js setup, dependencies, dashboard layout and
+    sidebar.
+
+2.  30 minutes CSV uploader, sample data and review validation.
+
+3.  60 minutes OpenAI integration, sentiment classification and aspect
+    analysis.
+
+4.  30 minutes Date filters and basic analytics calculations.
+
+DAY 2 – INTELLIGENCE AND REPORTING (2 hours 30 minutes)
+
+1.  35 minutes Complete charts, KPI cards and period comparison.
+
+2.  30 minutes AI recommendations and complaint analysis.
+
+3.  40 minutes PDF and Excel report generation.
+
+4.  45 minutes Testing, debugging, design improvements and demo
+    preparation.
+
+This is an aggressive schedule. Start with a small sample dataset, use
+batch analysis with caching and keep optional features out of the
+critical path.
+
+============================================================ 15. JUDGE
+DEMONSTRATION SCENARIO
+============================================================
+
+Scenario: A food delivery company wants to understand customer
+satisfaction.
+
+1.  Upload customer reviews. Load 500 synthetic reviews with different
+    ratings, locations, sources and timestamps.
+
+2.  Analyse customer feedback. AI processes reviews and identifies
+    positive, neutral and negative sentiment.
+
+3.  Show the last 7 days. Select the date filter and display sentiment
+    distribution and complaint trends.
+
+4.  Show the last 30 days. Demonstrate comparison with the previous
+    period.
+
+5.  Show AI findings. Highlight the major complaint categories in the
+    sample dataset, such as delivery delays and packaging.
+
+6.  Generate management reports. Download the professional PDF and Excel
+    workbook.
+
+The strongest demonstration moment: Show how the business can move from
+hundreds of individual reviews to a prioritized list of business
+problems and a shareable executive report.
+
+============================================================ 16.
+ALIGNMENT WITH OFFICIAL PROBLEM STATEMENT 6B
+============================================================
+
+Official requirements: - Clean browser-based web interface with
+multi-line text input. - AI classification into positive, neutral or
+negative sentiment. - Visual summary counters for brand health and
+recurring complaint keywords. - One-click export of classified feedback
+as a spreadsheet. - Suggested data: 30 diverse customer reviews and
+social media comments.
+
+PulseBoard AI retains all of these requirements and extends them with: -
+CSV upload. - Time-based sentiment monitoring. - Historical period
+comparison. - Aspect-level sentiment. - AI root cause observations. -
+Actionable business recommendations. - Professional PDF reporting. -
+Multi-sheet Excel reporting.
+
+The product should remain focused on customer feedback and sentiment
+intelligence.
+
+============================================================ 17. FINAL
+PRODUCT PRINCIPLES
+============================================================
+
+1.  Every dashboard number, chart and exported report must come from the
+    same filtered review data.
+
+2.  Analyse each review once and reuse the structured result. Do not
+    repeatedly call AI when date filters change.
+
+3.  Use timestamps that exist in the dataset. Do not claim access to
+    live external reviews without real integrations.
+
+4.  Clearly distinguish measured facts from AI-generated interpretations
+    and recommendations.
+
+5.  Show low-data warnings when the selected period contains too few
+    reviews.
+
+6.  Keep the API key on the server.
+
+7.  Prioritize a complete, reliable MVP over optional features.
+
+FINAL PRODUCT NAME: PulseBoard AI
+
+TAGLINE: Understand your customers. Improve your business.
+
+PROJECT: OpenAI Hackathon – Problem Statement 6B Browser-Based Customer
+Feedback & Sentiment Board
