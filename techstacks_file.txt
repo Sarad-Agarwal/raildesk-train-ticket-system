@@ -1,0 +1,50 @@
+## **1. Technology Stack**
+
+| Layer           | Technologies                        |
+| --------------- | ----------------------------------- |
+| Frontend        | Next.js, React, TypeScript          |
+| Styling         | Tailwind CSS, shadcn/ui             |
+| Animations      | Framer Motion                       |
+| Charts          | Recharts                            |
+| Icons           | Lucide React                        |
+| AI              | OpenAI API, Structured JSON Outputs |
+| Data Processing | PapaParse, ExcelJS                  |
+| Validation      | Zod                                 |
+| Date Handling   | date-fns                            |
+| PDF Reports     | jsPDF, AutoTable                    |
+| Data Storage    | localStorage (MVP)                  |
+| Deployment      | Vercel                              |
+
+## **2. What is unique about PulseBoard AI?**
+
+Five major differentiators:
+
+1\. **Aspect-Level Sentiment Analysis:** One review can have multiple sentiments. Example: good food but poor delivery and damaged packaging.
+
+2\. **AI Root Cause Discovery:** Explains why customers are unhappy, backed by actual customer reviews.
+
+3\. **Early Warning System:** Detects increasing complaints before they become bigger business problems.
+
+4\. **Smart Issue Prioritisation:** Scores problems from 0–100 based on complaint frequency, severity, and trends, helping businesses decide what to fix first.
+
+5\. **Insight-to-Action:** Converts AI findings into practical business recommendations with To Do, In Progress, and Completed tracking.
+
+### **Additional features**
+
+- Time-based sentiment analysis with custom date ranges.
+- Evidence-linked AI insights.
+- AI-generated customer review responses.
+- Automatic PDF and Excel business reports.
+- Previous-period performance comparison.
+
+## **3. Our main USP**
+
+# **PulseBoard AI**
+
+**From customer reviews to business decisions.**
+
+Ordinary tools tell businesses whether customers are happy or unhappy.
+
+**PulseBoard AI tells them what is wrong, why it is happening, how urgently they should fix it, and what action they should take.**
+
+This is the main message I would communicate to hackathon judges.
